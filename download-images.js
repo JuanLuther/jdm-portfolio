@@ -37,6 +37,11 @@ const images = [
     description: "Hero section profile image",
   },
   {
+    url: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80",
+    filename: "hero-bg.jpg",
+    description: "Hero section background image",
+  },
+  {
     url: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80",
     filename: "about-profile.jpg",
     description: "About section profile image",

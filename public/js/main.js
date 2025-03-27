@@ -12,42 +12,48 @@ const projects = [
       "Express",
       "MongoDB",
     ],
-    image: "images/projects/ecommerce.jpg",
+    image: "images/ecommerce.jpg",
+    link: "https://example.com/ecommerce",
   },
   {
     title: "Task Management App",
     description:
       "A collaborative task management application with real-time updates and team features.",
     technologies: ["React", "Node.js", "Socket.io", "PostgreSQL"],
-    image: "images/projects/task-manager.jpg",
+    image: "images/task-manager.jpg",
+    link: "https://example.com/task-manager",
   },
   {
     title: "Portfolio Website",
     description:
       "A modern, responsive portfolio website showcasing projects and skills.",
     technologies: ["HTML5", "CSS3", "JavaScript", "Node.js"],
-    image: "images/projects/portfolio.jpg",
+    image: "images/portfolio.jpg",
+    link: "https://juanluther.github.io/portfolio-vanilla/",
   },
   {
     title: "Weather Dashboard",
     description:
       "A weather application that displays current weather and forecasts using OpenWeather API.",
     technologies: ["JavaScript", "OpenWeather API", "Chart.js"],
-    image: "images/projects/weather.jpg",
+    image: "images/weather.jpg",
+    link: "https://example.com/weather",
   },
   {
     title: "Blog Platform",
     description:
       "A content management system for creating and managing blog posts.",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
-    image: "images/projects/blog.jpg",
+    image: "images/blog.jpg",
+    link: "https://example.com/blog",
   },
   {
     title: "Chat Application",
     description:
       "Real-time chat application with user rooms and private messaging.",
     technologies: ["Socket.io", "Node.js", "Express", "MongoDB"],
-    image: "images/projects/chat.jpg",
+    image: "images/chat.jpg",
+    link: "https://example.com/chat",
   },
 ];
 
@@ -111,11 +117,31 @@ const getImage = async (project) => {
 const initNavigation = () => {
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
+  const body = document.body;
 
+  // Toggle the mobile menu when hamburger is clicked
   hamburger.addEventListener("click", () => {
-    navLinks.style.display =
-      navLinks.style.display === "flex" ? "none" : "flex";
     hamburger.classList.toggle("active");
+
+    // Toggle the navigation menu
+    if (navLinks.style.display === "flex") {
+      navLinks.style.display = "none";
+      body.style.overflow = "";
+    } else {
+      navLinks.style.display = "flex";
+      body.style.overflow = "hidden";
+    }
+  });
+
+  // Close mobile menu when a nav link is clicked
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        hamburger.classList.remove("active");
+        navLinks.style.display = "none";
+        body.style.overflow = "";
+      }
+    });
   });
 
   // Smooth Scrolling for Navigation Links
@@ -131,6 +157,15 @@ const initNavigation = () => {
       }
     });
   });
+
+  // Reset navigation display on window resize
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      hamburger.classList.remove("active");
+      navLinks.style.display = ""; // Reset to default (will follow CSS rules)
+      body.style.overflow = "";
+    }
+  });
 };
 
 // Projects functionality
@@ -140,6 +175,12 @@ const loadProjects = () => {
   projects.forEach((project) => {
     const projectCard = document.createElement("div");
     projectCard.className = "project-card";
+
+    // Make the entire card clickable
+    projectCard.addEventListener("click", () => {
+      window.open(project.link, "_blank");
+    });
+    projectCard.style.cursor = "pointer";
 
     projectCard.innerHTML = `
             <div class="image-container">

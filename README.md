@@ -1,66 +1,70 @@
-# Vanilla JavaScript Portfolio
+# Portfolio Website
 
-A modern, responsive portfolio website built with vanilla JavaScript and Node.js.
+A clean, responsive portfolio website built with vanilla JavaScript.
 
 ## Features
 
-- Responsive design
-- Smooth scrolling navigation
-- Dynamic project loading
+- Responsive design that works on all devices
+- Modern and clean UI
+- Project showcase with images
+- Skills section
 - Contact form
-- Mobile-friendly navigation
-- Modern UI/UX
-
-## Prerequisites
-
-- Node.js (v14 or higher)
-- npm (v6 or higher)
+- Smooth animations and transitions
 
 ## Installation
 
 1. Clone the repository:
 
-```bash
-git clone <your-repo-url>
-cd portfolio-vanilla
-```
+   ```bash
+   git clone https://github.com/yourusername/portfolio-vanilla.git
+   cd portfolio-vanilla
+   ```
 
 2. Install dependencies:
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-3. Start the development server:
+3. Download project images:
 
-```bash
-npm run dev
-```
+   ```bash
+   npm run download-images
+   ```
 
-4. Open your browser and navigate to `http://localhost:3000`
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Project Structure
+## Deployment to GitHub Pages
 
-```
-portfolio-vanilla/
-├── public/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── main.js
-│   └── index.html
-├── server.js
-├── package.json
-└── README.md
-```
+1. Update the `homepage` field in `package.json` with your GitHub username:
+
+   ```json
+   "homepage": "https://yourusername.github.io/portfolio-vanilla"
+   ```
+
+2. Build the project:
+
+   ```bash
+   npm run build
+   ```
+
+3. Deploy to GitHub Pages:
+
+   ```bash
+   npm run deploy
+   ```
+
+4. Your site should now be live at `https://yourusername.github.io/portfolio-vanilla`
 
 ## Customization
 
-1. Update the content in `public/index.html` with your personal information
-2. Modify the projects array in `public/js/main.js` to showcase your work
-3. Update the styling in `public/css/style.css` to match your preferred design
-4. Add your social media links in the contact section
+- Replace the placeholder text and images in the `public/index.html` file
+- Customize styles in the `public/css/style.css` file
+- Modify the projects data in the `public/js/main.js` file
 
 ## License
 
-MIT License
+MIT
