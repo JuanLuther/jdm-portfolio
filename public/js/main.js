@@ -13,9 +13,9 @@ const projects = [
     description:
       "A full-featured e-commerce platform with shopping cart, user authentication, and payment integration.",
     technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
+      "Tailwind CSS",
+      "Next.js",
+      "TypeScript",
       "Node.js",
       "Express",
       "MongoDB",
