@@ -20,7 +20,7 @@ const projects = [
       "Express",
       "MongoDB",
     ],
-    image: "images/ecommerce.jpg",
+    image: "images/hero-image.jpg",
     link: "https://ae-architect.vercel.app/",
   },
   
