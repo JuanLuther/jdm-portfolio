@@ -11,7 +11,7 @@ const projects = [
   {
     title: "Architecture Website",
     description:
-      "A full-featured e-commerce platform with shopping cart, user authentication, and payment integration.",
+      "A modern architecture website showcasing innovative designs, project portfolios, and industry insights.",
     technologies: [
       "Tailwind CSS",
       "Next.js",
