@@ -1,7 +1,15 @@
 // Sample Projects Data
 const projects = [
   {
-    title: "E-Commerce Website",
+    title: "Portfolio Website",
+    description:
+      "A modern, responsive portfolio website showcasing projects and skills.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Node.js"],
+    image: "images/portfolio.jpg",
+    link: "https://juanluther.github.io/portfolio-vanilla/",
+  },
+  {
+    title: "Architecture Website",
     description:
       "A full-featured e-commerce platform with shopping cart, user authentication, and payment integration.",
     technologies: [
@@ -13,48 +21,10 @@ const projects = [
       "MongoDB",
     ],
     image: "images/ecommerce.jpg",
-    link: "https://example.com/ecommerce",
+    link: "https://ae-architect.vercel.app/",
   },
-  {
-    title: "Task Management App",
-    description:
-      "A collaborative task management application with real-time updates and team features.",
-    technologies: ["React", "Node.js", "Socket.io", "PostgreSQL"],
-    image: "images/task-manager.jpg",
-    link: "https://example.com/task-manager",
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "A modern, responsive portfolio website showcasing projects and skills.",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Node.js"],
-    image: "images/portfolio.jpg",
-    link: "https://juanluther.github.io/portfolio-vanilla/",
-  },
-  {
-    title: "Weather Dashboard",
-    description:
-      "A weather application that displays current weather and forecasts using OpenWeather API.",
-    technologies: ["JavaScript", "OpenWeather API", "Chart.js"],
-    image: "images/weather.jpg",
-    link: "https://example.com/weather",
-  },
-  {
-    title: "Blog Platform",
-    description:
-      "A content management system for creating and managing blog posts.",
-    technologies: ["React", "Node.js", "Express", "MongoDB"],
-    image: "images/blog.jpg",
-    link: "https://example.com/blog",
-  },
-  {
-    title: "Chat Application",
-    description:
-      "Real-time chat application with user rooms and private messaging.",
-    technologies: ["Socket.io", "Node.js", "Express", "MongoDB"],
-    image: "images/chat.jpg",
-    link: "https://example.com/chat",
-  },
+  
+ 
 ];
 
 // Function to download and save image
