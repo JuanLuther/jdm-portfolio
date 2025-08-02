@@ -38,18 +38,31 @@ const loadProjects = () => {
     projectCard.style.cursor = "pointer";
 
     projectCard.innerHTML = `
-            <div class="image-container">
-                <img src="${project.image}" alt="${
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+  <!-- Image -->
+  <div class="w-full h-48 overflow-hidden">
+    <img src="${project.image}" alt="${
       project.title
-    }" loading="lazy">
-            </div>
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <div class="project-technologies">
-                ${project.technologies
-                  .map((tech) => `<span>${tech}</span>`)
-                  .join("")}
-            </div>
+    }" loading="lazy" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Content -->
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-2 text-gray-900">${project.title}</h3>
+    <p class="text-gray-700 mb-4">${project.description}</p>
+
+    <!-- Technologies -->
+    <div class="flex flex-wrap gap-2">
+      ${project.technologies
+        .map(
+          (tech) =>
+            `<span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">${tech}</span>`
+        )
+        .join("")}
+    </div>
+  </div>
+</div>
+
         `;
     projectsGrid.appendChild(projectCard);
     console.log("Project card created:", project.title);
