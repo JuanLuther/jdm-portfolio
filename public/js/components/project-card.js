@@ -1,12 +1,12 @@
 const projects = [
-  {
-    title: "Eisenhower Task Prioritizer",
-    description:
-      "A single-page app to organize, prioritize, and manage daily tasks efficiently.",
-    technologies: ["HTML5", "CSS3", "JavaScript"],
-    image: "assets/images/portfolio.jpg",
-    link: "https://task-prioritizer-nu.vercel.app/",
-  },
+  // {
+  //   title: "Eisenhower Task Prioritizer",
+  //   description:
+  //     "A single-page app to organize, prioritize, and manage daily tasks efficiently.",
+  //   technologies: ["HTML5", "CSS3", "JavaScript"],
+  //   image: "assets/images/portfolio.jpg",
+  //   link: "https://task-prioritizer-nu.vercel.app/",
+  // },
   {
     title: "Architecture Website",
     description:
