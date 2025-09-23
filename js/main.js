@@ -1,4 +1,4 @@
-import loadProjects from "./js/project-card.js";
+import loadProjects from "./project-card.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");

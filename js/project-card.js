@@ -56,13 +56,13 @@ const loadProjects = () => {
       project.title
     }" loading="lazy" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
     <div
-                  class="absolute inset-0 bg-dark-teal/0 group-hover:bg-dark-teal/10 transition-all duration-300"
-                ></div>
-                <div
-                  class="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
-                >
-                  <i class="fas fa-external-link-alt text-slate text-sm"></i>
-                </div>
+      class="absolute inset-0 bg-dark-teal/0 group-hover:bg-dark-teal/10 transition-all duration-300"
+    ></div>
+    <div
+      class="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
+    >
+      <i class="fas fa-external-link-alt text-slate text-sm"></i>
+    </div>
     </div>
 
     <!-- Content -->
