@@ -7,9 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d ."
   },
   "devDependencies": {
     "vite": "^7.1.7"
-  }
+  },
+  "homepage": "https://juanluther.github.io/portfolio-vanilla/"
 }
