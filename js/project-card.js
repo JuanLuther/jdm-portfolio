@@ -8,15 +8,15 @@ const projects = [
     link: "https://task-prioritizer-nu.vercel.app/",
     display: true,
   },
-  {
-    title: "Lovey",
-    description:
-      "A dedication platform for my beloved girlfriend, showcasing our journey and special moments together.",
-    technologies: ["HTML5", "CSS3", "JavaScript"],
-    image: "images/us.jfif",
-    link: "https://lovey-ten.vercel.app/",
-    display: false,
-  },
+  // {
+  //   title: "Lovey",
+  //   description:
+  //     "A dedication platform for my beloved girlfriend, showcasing our journey and special moments together.",
+  //   technologies: ["HTML5", "CSS3", "JavaScript"],
+  //   image: "images/us.jfif",
+  //   link: "https://lovey-ten.vercel.app/",
+  //   display: false,
+  // },
   {
     title: "Architecture Website",
     description:
