@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="assets/images/JDM logo.png"
+      type="image/x-icon"
+    />
     <title>Jerick Dale A. Mendoza - Full Stack Developer</title>
 
     <!-- Tailwind CDN -->
@@ -21,185 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      :root {
-        --cream: #17313e;
-        --cream: #f3e2d4;
-        --lavender: #c5b0cd;
-        --slate: #415e72;
-        --dark-teal: #17313e;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-      }
-
-      .font-display {
-        font-family: "Playfair Display", serif;
-      }
-
-      .text-cream {
-        color: var(--cream);
-      }
-      .text-lavender {
-        color: var(--lavender);
-      }
-      .text-slate {
-        color: var(--slate);
-      }
-      .text-dark-teal {
-        color: var(--dark-teal);
-      }
-
-      .bg-cream {
-        background-color: var(--cream);
-      }
-      .bg-lavender {
-        background-color: var(--lavender);
-      }
-      .bg-slate {
-        background-color: var(--slate);
-      }
-      .bg-dark-teal {
-        background-color: var(--dark-teal);
-      }
-
-      .border-cream {
-        border-color: var(--cream);
-      }
-      .border-lavender {
-        border-color: var(--lavender);
-      }
-      .border-slate {
-        border-color: var(--slate);
-      }
-      .border-dark-teal {
-        border-color: var(--dark-teal);
-      }
-
-      .gradient-primary {
-        background: linear-gradient(135deg, var(--lavender), var(--slate));
-      }
-
-      .gradient-secondary {
-        background: linear-gradient(135deg, var(--cream), var(--lavender));
-      }
-
-      .gradient-text {
-        background: linear-gradient(135deg, var(--slate), var(--dark-teal));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .card-shadow {
-        box-shadow: 0 4px 20px rgba(65, 94, 114, 0.1);
-      }
-
-      .card-hover {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .card-hover:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 30px rgba(65, 94, 114, 0.15);
-      }
-
-      .btn-primary {
-        background: var(--slate);
-        color: white;
-        transition: all 0.3s ease;
-      }
-
-      .btn-primary:hover {
-        background: var(--dark-teal);
-        transform: translateY(-2px);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: var(--slate);
-        border: 2px solid var(--slate);
-        transition: all 0.3s ease;
-      }
-
-      .btn-secondary:hover {
-        background: var(--slate);
-        color: white;
-        transform: translateY(-2px);
-      }
-
-      .skill-tag {
-        background: var(--cream);
-        color: var(--dark-teal);
-        border: 1px solid var(--lavender);
-        transition: all 0.3s ease;
-      }
-
-      .skill-tag:hover {
-        background: var(--lavender);
-        color: white;
-        transform: scale(1.05);
-      }
-
-      .section-padding {
-        padding: 5rem 0;
-      }
-
-      .container-custom {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      .text-balance {
-        text-wrap: balance;
-      }
-
-      .backdrop-blur-custom {
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-
-      .nav-link {
-        position: relative;
-        transition: color 0.3s ease;
-      }
-
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--slate);
-        transition: width 0.3s ease;
-      }
-
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      .section-divider {
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(90deg, var(--lavender), var(--slate));
-        margin: 0 auto 3rem;
-        border-radius: 2px;
-      }
-
-      @media (max-width: 768px) {
-        .section-padding {
-          padding: 3rem 0;
-        }
-
-        .container-custom {
-          padding: 0 1rem;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
   <body class="antialiased text-dark-teal bg-white overflow-x-hidden">
@@ -209,9 +36,13 @@
     >
       <nav class="container-custom flex items-center justify-between py-4">
         <!-- Brand -->
-        <div class="text-xl font-display font-semibold text-dark-teal">
-          Jerick Dale A. Mendoza
-        </div>
+        <a
+          href="#home"
+          class="text-xl font-display font-semibold text-dark-teal flex items-center space-x-3 hover:text-dark-teal transition"
+        >
+          <img src="assets/images/JDM logo.png" alt="Logo" class="h-10" />
+          <p>Jerick Dale A. Mendoza</p>
+        </a>
 
         <!-- Desktop Nav Links -->
         <ul
@@ -756,7 +587,7 @@
           <div
             class="bg-white/10 backdrop-blur-custom rounded-2xl p-8 lg:p-12 border border-white/20"
           >
-            <form action="#" method="POST" id="contact-form" class="space-y-6">
+            <form action="#" method="GET" id="contact-form" class="space-y-6">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-2">
                   <label class="text-sm font-medium text-cream block"
@@ -845,12 +676,13 @@
         <p class="mb-2 font-medium">
           &copy; 2024 Jerick Dale A. Mendoza. All rights reserved.
         </p>
-        <p class="text-sm text-cream/70">
+        <p hidden class="text-sm text-cream/70">
           Built with ❤️ using modern web technologies
         </p>
       </div>
     </footer>
 
+    <!-- JavaScript for interactivity -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const hamburger = document.getElementById("hamburger");
