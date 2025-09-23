@@ -1,2 +1,4 @@
-assets/templates/
+
 .env
+node_modules/
+assets/templates/
