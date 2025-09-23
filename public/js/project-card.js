@@ -6,15 +6,17 @@ const projects = [
     technologies: ["HTML5", "CSS3", "JavaScript"],
     image: "images/portfolio.jpg",
     link: "https://task-prioritizer-nu.vercel.app/",
+    display: true,
   },
-  // {
-  //   title: "Lovey",
-  //   description:
-  //     "A dedication platform for my beloved girlfriend, showcasing our journey and special moments together.",
-  //   technologies: ["HTML5", "CSS3", "JavaScript"],
-  //   image: "images/us.jfif",
-  //   link: "https://lovey-ten.vercel.app/",
-  // },
+  {
+    title: "Lovey",
+    description:
+      "A dedication platform for my beloved girlfriend, showcasing our journey and special moments together.",
+    technologies: ["HTML5", "CSS3", "JavaScript"],
+    image: "images/us.jfif",
+    link: "https://lovey-ten.vercel.app/",
+    display: false,
+  },
   {
     title: "Architecture Website",
     description:
@@ -28,6 +30,7 @@ const projects = [
     ],
     image: "images/hero-image.jpg",
     link: "https://ae-architect.vercel.app/",
+    display: true,
   },
 ];
 
@@ -39,6 +42,7 @@ const loadProjects = () => {
   }
 
   projects.forEach((project) => {
+    if (!project.display) return; // Skip projects not marked for display
     const projectCard = document.createElement("div");
     projectCard.className = "project-card group cursor-pointer ";
 
