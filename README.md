@@ -8,6 +8,18 @@ This is a portfolio website built with vanilla JavaScript. I chose to keep thing
 - **CSS3**: Styling and layout
 - **JavaScript**: Interactivity and logic
 - **Git & GitHub**: Version control and hosting
+- **GitHub Pages**: Deployment and hosting
 - **VS Code**: Code editor
+- **Vite**: Build tool for faster development
+- **Node.js**: JavaScript runtime for development
 
-[Plese click here to visit this portfolio website.](https://juanluther.github.io/portfolio-vanilla/)
+## Script Commands
+
+- `npm run dev`: Start the development server
+- `npm run build`: Build the project for production
+- `npm run preview`: Preview the production build
+- `npm run deploy`: Deploy the project to GitHub Pages
+
+## Live Demo
+
+[Please click here to visit this portfolio website.](https://juanluther.github.io/portfolio-vanilla/)
