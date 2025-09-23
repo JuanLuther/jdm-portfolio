@@ -22,4 +22,4 @@ This is a portfolio website built with vanilla JavaScript. I chose to keep thing
 
 ## Live Demo
 
-[Please click here to visit this portfolio website.](https://juanluther.github.io/portfolio-vanilla/)
+[Please click here to visit this portfolio website.](https://jd-mendoza.vercel.app/)
