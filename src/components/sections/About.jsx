@@ -1,6 +1,35 @@
 import React from "react";
 
 export const About = () => {
+  const skills = {
+    "Programming Languages": [
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "Java",
+      "PHP",
+      "C#",
+    ],
+    "Frontend Development": [
+      "HTML5 & CSS3",
+      "React.js",
+      "Vue.js",
+      "Tailwind CSS",
+    ],
+    "Backend Development": [
+      "Node.js",
+      "Express.js",
+      "MySQL",
+      "PostgreSQL",
+      "Flask",
+    ],
+    "Tools & Technologies": [
+      "Git & GitHub",
+      "VS Code",
+      "Docker",
+      "Android Studio",
+    ],
+  };
   return (
     <section id="about" className="section-padding bg-white">
       <div className="container-custom">
@@ -15,10 +44,10 @@ export const About = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* About Image */}
-          <div className="lg:col-span-1">
-            <div className="relative">
+          <div hidden className="lg:col-span-2">
+            <div className="h-full relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden card-shadow">
                 <img
                   src="images/about-profile.jpg"
@@ -29,11 +58,9 @@ export const About = () => {
               <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-lavender rounded-2xl -z-10"></div>
             </div>
           </div>
-
-          {/* About Content */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Introduction */}
-            <div className="bg-cream rounded-2xl p-8 card-hover">
+          {/* Introduction */}
+          <div className="lg:col-span-2">
+            <div className="h-full bg-cream rounded-2xl p-8 card-hover">
               <h3 className="font-display text-2xl font-semibold text-dark-teal mb-4">
                 Introduction
               </h3>
@@ -45,9 +72,10 @@ export const About = () => {
                 grow as a junior developer.
               </p>
             </div>
-
-            {/* Education */}
-            <div className="bg-white rounded-2xl p-8 card-shadow card-hover border border-gray-100">
+          </div>
+          {/* Education */}
+          <div className="lg:col-span-2">
+            <div className="h-full bg-white rounded-2xl p-8 card-shadow card-hover border border-gray-100">
               <h3 className="font-display text-2xl font-semibold text-dark-teal mb-6 flex items-center">
                 <i className="fas fa-graduation-cap mr-3 text-slate"></i>
                 Education
@@ -68,98 +96,31 @@ export const About = () => {
                 </p>
               </div>
             </div>
-
-            {/* Skills */}
-            <div className="bg-white rounded-2xl p-8 card-shadow card-hover border border-gray-100">
+          </div>
+          {/* Skills */}
+          <div className="lg:col-span-4 space-y-8">
+            <div className="h-full">
               <h3 className="font-display text-2xl font-semibold text-dark-teal mb-6 flex items-center">
                 <i className="fas fa-code mr-3 text-slate"></i>Technical Skills
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-slate text-lg border-b-2 border-lavender pb-2">
-                    Programming Languages
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      TypeScript
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      JavaScript
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Python
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Java
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      PHP
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      C#
-                    </span>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                {Object.keys(skills).map((category) => (
+                  <div className=" rounded-2xl p-8 space-y-4  bg-white card-shadow card-hover border border-gray-100">
+                    <h4 className="font-semibold text-slate text-lg border-b-2 border-lavender pb-2">
+                      {category}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skills[category].map((lang, index) => (
+                        <span
+                          className="skill-tag px-3 py-1 rounded-full text-sm font-medium"
+                          key={index}
+                        >
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-slate text-lg border-b-2 border-lavender pb-2">
-                    Frontend
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      HTML5 & CSS3
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      React.js
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Vue.js
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Tailwind CSS
-                    </span>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-slate text-lg border-b-2 border-lavender pb-2">
-                    Backend
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Node.js
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Express.js
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      MySQL
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      PostgreSQL
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Flask
-                    </span>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-slate text-lg border-b-2 border-lavender pb-2">
-                    Tools & Others
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Git & GitHub
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      VS Code
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Docker
-                    </span>
-                    <span className="skill-tag px-3 py-1 rounded-full text-sm font-medium">
-                      Android Studio
-                    </span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
