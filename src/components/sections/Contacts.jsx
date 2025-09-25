@@ -1,6 +1,30 @@
 import React from "react";
 
 export const Contacts = () => {
+  React.useEffect(() => {
+    // Form submission feedback
+    const form = document.getElementById("contact-form");
+    const feedback = document.getElementById("contact-feedback");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const button = form.querySelector('button[type="submit"]');
+      button.innerHTML =
+        '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+      button.disabled = true;
+
+      // Simulate sending (replace with real API if needed)
+      setTimeout(() => {
+        feedback.textContent =
+          "Thank you for reaching out! I'll get back to you soon.";
+        button.innerHTML = '<i class="fas fa-paper-plane"></i>Send Message';
+        button.disabled = false;
+        form.reset();
+      }, 1800);
+    });
+    return () => {
+      form.removeEventListener("submit", function (e) {});
+    };
+  }, []);
   return (
     <section
       id="contact"

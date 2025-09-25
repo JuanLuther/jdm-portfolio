@@ -1,9 +1,36 @@
 import React, { useEffect, useState } from "react";
 
 export const Header = () => {
+  useEffect(() => {
+    const mobileMenu = document.getElementById("mobile-menu");
+    const anchors = document.querySelectorAll('a[href^="#"]');
+
+    // Define the handler function here (to maintain a stable reference)
+    const scrollHandler = function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        mobileMenu.classList.add("hidden");
+      }
+    };
+
+    // 1. ATTACH the listener using the stable reference
+    anchors.forEach((anchor) => {
+      anchor.addEventListener("click", scrollHandler);
+    });
+
+    return () => {
+      // 2. DETACH the listener using the SAME stable reference
+      anchors.forEach((anchor) => {
+        anchor.removeEventListener("click", scrollHandler);
+      });
+    };
+  }, []);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navLinks = [
-    { name: "Home", href: "#" },
+    { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
@@ -23,20 +50,7 @@ export const Header = () => {
         <ul className="hidden md:flex space-x-8 text-slate font-medium items-center py-2">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="nav-link hover:text-dark-teal"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const target = document.querySelector(link.href);
-                  if (target) {
-                    target.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
-                  }
-                }}
-              >
+              <a href={link.href} className="nav-link hover:text-dark-teal">
                 {link.name}
               </a>
             </li>

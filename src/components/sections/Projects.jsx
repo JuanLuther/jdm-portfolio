@@ -24,7 +24,13 @@ export const Projects = () => {
       title: "Architecture Website",
       description:
         "A modern architecture website showcasing innovative designs, project portfolios, and industry insights with responsive design.",
-      technologies: ["Tailwind CSS", "Next.js", "TypeScript"],
+      technologies: [
+        "Tailwind CSS",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "MongoDB",
+      ],
       image: "images/hero-image.jpg",
       link: "https://ae-architect.vercel.app/",
       display: true,
