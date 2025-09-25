@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ];
   return (
     <header className="bg-white/95 backdrop-blur-custom shadow-sm sticky top-0 z-50 border-b border-gray-100">
       <nav className="container-custom flex items-center justify-between py-4">
@@ -12,29 +19,28 @@ export const Header = () => {
           <img src="logo.svg" alt="Logo" className="h-10" />
           <p>Jerick Dale A. Mendoza</p>
         </a>
-
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-8 text-slate font-medium items-center py-2">
-          <li>
-            <a href="#home" className="nav-link hover:text-dark-teal">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="nav-link hover:text-dark-teal">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#projects" className="nav-link hover:text-dark-teal">
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="nav-link hover:text-dark-teal">
-              Contact
-            </a>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="nav-link hover:text-dark-teal"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.querySelector(link.href);
+                  if (target) {
+                    target.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }
+                }}
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
           <li>
             <a
               href="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
@@ -45,11 +51,11 @@ export const Header = () => {
             </a>
           </li>
         </ul>
-
         {/* Hamburger Button */}
         <div
           id="hamburger"
           className="md:hidden flex flex-col space-y-1 cursor-pointer group"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <span className="block w-6 h-0.5 bg-slate transition-all duration-300 group-hover:bg-dark-teal"></span>
           <span className="block w-6 h-0.5 bg-slate transition-all duration-300 group-hover:bg-dark-teal"></span>
@@ -60,7 +66,9 @@ export const Header = () => {
       {/* Mobile Nav Links */}
       <ul
         id="mobile-menu"
-        className="hidden flex-col space-y-4 px-6 pb-6 text-slate font-medium md:hidden bg-white/95 backdrop-blur-custom"
+        className={`flex-col space-y-4 px-6 pb-6 text-slate font-medium md:hidden bg-white/95 backdrop-blur-custom ${
+          isMobileMenuOpen ? "" : "hidden"
+        }`}
       >
         <li>
           <a

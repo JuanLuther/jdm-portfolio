@@ -1,8 +1,5 @@
-import loadProjects from "./public/js/project-card.js";
-
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded and parsed");
-  loadProjects();
   const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.getElementById("mobile-menu");
 
