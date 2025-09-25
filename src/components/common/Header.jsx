@@ -118,7 +118,7 @@ export const Header = () => {
         </li>
         <li>
           <a
-            href="https://drive.google.com/file/d/180L8PZz5Eq0fmlWTeSVC-uAKvN8MuBdJ/view?usp=drive_link"
+            href="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
             target="_blank"
             className="block btn-secondary px-6 py-2 rounded-lg font-semibold text-center border border-lavender hover:bg-lavender hover:text-white transition-all duration-300"
           >
