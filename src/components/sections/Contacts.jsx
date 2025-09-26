@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Contacts = () => {
-  const SERVER = "https://portfolio-admin-0m6y.onrender.com";
+  const SERVER = "https://portfolio-admin-production-8f06.up.railway.app";
   React.useEffect(() => {
     // Form submission feedback
     const form = document.getElementById("contact-form");
