@@ -104,8 +104,11 @@ export const About = () => {
                 <i className="fas fa-code mr-3 text-slate"></i>Technical Skills
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                {Object.keys(skills).map((category) => (
-                  <div className=" rounded-2xl p-8 space-y-4  bg-white card-shadow card-hover border border-gray-100">
+                {Object.keys(skills).map((category, index) => (
+                  <div
+                    key={index}
+                    className="rounded-2xl p-8 space-y-4  bg-white card-shadow card-hover border border-gray-100"
+                  >
                     <h4 className="font-semibold text-slate text-lg border-b-2 border-lavender pb-2">
                       {category}
                     </h4>

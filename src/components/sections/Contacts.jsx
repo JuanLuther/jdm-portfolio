@@ -1,11 +1,14 @@
 import React from "react";
 
 export const Contacts = () => {
+  const SERVER = "https://portfolio-admin-0m6y.onrender.com";
   React.useEffect(() => {
     // Form submission feedback
     const form = document.getElementById("contact-form");
     const feedback = document.getElementById("contact-feedback");
-    form.addEventListener("submit", function (e) {
+
+    // Define the handler outside to use the same reference for add/remove
+    const handleSubmit = (e) => {
       e.preventDefault();
       const button = form.querySelector('button[type="submit"]');
       button.innerHTML =
@@ -13,18 +16,46 @@ export const Contacts = () => {
       button.disabled = true;
 
       // Simulate sending (replace with real API if needed)
-      setTimeout(() => {
-        feedback.textContent =
-          "Thank you for reaching out! I'll get back to you soon.";
-        button.innerHTML = '<i class="fas fa-paper-plane"></i>Send Message';
-        button.disabled = false;
-        form.reset();
-      }, 1800);
-    });
+      fetch(`${SERVER}/portfolio`, {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          setTimeout(() => {
+            feedback.textContent =
+              "Thank you for reaching out! I'll get back to you soon.";
+            button.innerHTML = '<i class="fas fa-paper-plane"></i>Send Message';
+            button.disabled = false;
+            form.reset();
+          }, 1000); // Clear message after 1 seconds
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch(() => {
+          setTimeout(() => {
+            feedback.textContent =
+              "Oops! Something went wrong. Please try again later.";
+            button.innerHTML = '<i class="fas fa-paper-plane"></i>Send Message';
+            button.disabled = false;
+          }, 1000); // Clear message after 1 second
+        });
+    };
+
+    form.addEventListener("submit", handleSubmit);
     return () => {
-      form.removeEventListener("submit", function (e) {});
+      form.removeEventListener("submit", handleSubmit);
     };
   }, []);
+
   return (
     <section
       id="contact"
@@ -58,7 +89,7 @@ export const Contacts = () => {
           <div className="bg-white/10 backdrop-blur-custom rounded-2xl p-8 lg:p-12 border border-white/20">
             <form
               action="#"
-              method="GET"
+              method="POST"
               id="contact-form"
               className="space-y-6"
             >
