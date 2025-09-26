@@ -35,6 +35,9 @@ export const Contacts = () => {
             button.disabled = false;
             form.reset();
           }, 1000); // Clear message after 1 seconds
+          setTimeout(() => {
+            feedback.textContent = "";
+          }, 5000); // Clear message after 5 seconds
           return response.json();
         })
         .then((data) => {
