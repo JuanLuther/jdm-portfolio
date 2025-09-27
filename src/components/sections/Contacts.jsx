@@ -1,7 +1,10 @@
 import React from "react";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const Contacts = () => {
-  const SERVER = "https://portfolio-admin-production-8f06.up.railway.app";
+  const SERVER = process.env.API_URL || "http://localhost:3000";
   React.useEffect(() => {
     // Form submission feedback
     const form = document.getElementById("contact-form");
