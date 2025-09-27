@@ -1,4 +1,45 @@
-import React from "react";
+import React, { useRef } from "react";
+// 1. Import motion and useInView
+import { motion, useInView } from "framer-motion";
+
+// Animation configuration for the main grid container
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Delay between each project card animation
+    },
+  },
+};
+
+// Animation configuration for individual project cards (fade up)
+const itemVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+    },
+  },
+};
+
+// Animation configuration for the section header elements (staggered fade up)
+const headerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 10,
+    },
+  },
+};
 
 export const Projects = () => {
   const projects = [
@@ -36,34 +77,66 @@ export const Projects = () => {
       display: true,
     },
   ];
+
+  // Ref for the main project grid
+  const gridRef = useRef(null);
+  const isGridInView = useInView(gridRef, { once: true, amount: 0.1 });
+
+  // New Ref for the section header
+  const headerRef = useRef(null);
+  const isHeaderInView = useInView(headerRef, { once: true, amount: 0.1 });
+
   return (
     <section id="projects" className="section-padding bg-gray-50">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4">
+        {/* SECTION HEADER - Now animated */}
+        <motion.div
+          ref={headerRef}
+          className="text-center mb-16"
+          variants={containerVariants} // Reusing containerVariants for header children stagger
+          initial="hidden"
+          animate={isHeaderInView ? "visible" : "hidden"}
+        >
+          <motion.h2
+            className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4"
+            variants={headerVariants}
+          >
             My Projects
-          </h2>
-          <div className="section-divider"></div>
-          <p className="text-slate text-lg max-w-2xl mx-auto text-balance">
+          </motion.h2>
+          <motion.div
+            className="section-divider"
+            variants={headerVariants}
+          ></motion.div>
+          <motion.p
+            className="text-slate text-lg max-w-2xl mx-auto text-balance"
+            variants={headerVariants}
+          >
             Here are some of my recent projects that showcase my skills and
             passion for web development.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div
+        {/* PROJECTS GRID - Apply container animation */}
+        <motion.div
           id="projects-grid"
+          ref={gridRef}
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isGridInView ? "visible" : "hidden"}
         >
           {/* Project Card Example */}
           {projects
             .filter((project) => project.display)
             .map((project, index) => (
-              <a
+              // Apply item animation to each card
+              <motion.a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card group cursor-pointer h-full"
                 key={index}
+                variants={itemVariants}
               >
                 <div className="bg-white rounded-2xl card-shadow card-hover overflow-hidden border border-gray-100">
                   {/* Project Image */}
@@ -100,9 +173,9 @@ export const Projects = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
