@@ -58,7 +58,10 @@ export const Projects = () => {
           {projects
             .filter((project) => project.display)
             .map((project, index) => (
-              <div
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="project-card group cursor-pointer h-full"
                 key={index}
               >
@@ -97,7 +100,7 @@ export const Projects = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
         </div>
       </div>
