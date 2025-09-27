@@ -6,7 +6,7 @@ export const Hero = () => {
       id="home"
       className="min-h-screen bg-gradient-secondary relative overflow-hidden"
     >
-      <div className="container-custom flex flex-col lg:flex-row items-center min-h-screen py-20">
+      <div className="container mx-auto px-6 lg:px-20 py-20 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-8">
         {/* Hero Content  */}
         <div className="w-full lg:w-1/2 lg:pr-12 text-center lg:text-left mb-12 lg:mb-0">
           <div className="space-y-6">

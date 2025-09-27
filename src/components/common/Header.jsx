@@ -10,8 +10,11 @@ export const Header = () => {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute("href"));
       if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
         mobileMenu.classList.add("hidden");
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       }
     };
 
@@ -84,38 +87,16 @@ export const Header = () => {
           isMobileMenuOpen ? "" : "hidden"
         }`}
       >
-        <li>
-          <a
-            href="#home"
-            className="block hover:text-dark-teal transition py-2"
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            href="#about"
-            className="block hover:text-dark-teal transition py-2"
-          >
-            About
-          </a>
-        </li>
-        <li>
-          <a
-            href="#projects"
-            className="block hover:text-dark-teal transition py-2"
-          >
-            Projects
-          </a>
-        </li>
-        <li>
-          <a
-            href="#contact"
-            className="block hover:text-dark-teal transition py-2"
-          >
-            Contact
-          </a>
-        </li>
+        {navLinks.map((link) => (
+          <li key={link.href}>
+            <a
+              href={link.href}
+              className="block hover:text-dark-teal transition py-2"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
         <li>
           <a
             href="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
