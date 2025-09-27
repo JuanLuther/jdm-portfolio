@@ -43,7 +43,8 @@ export const Contacts = () => {
         .then((data) => {
           console.log("Success:", data);
         })
-        .catch(() => {
+        .catch((err) => {
+          console.error("Error:", err);
           setTimeout(() => {
             feedback.textContent =
               "Oops! Something went wrong. Please try again later.";
