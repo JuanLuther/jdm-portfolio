@@ -9,33 +9,29 @@ import { Contacts } from "./components/sections/Contacts";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import { LoadingScreen } from "./components/common/LoadingScreen";
 import { BrowserRouter, Route, Routes, HashRouter } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
-  useEffect(() => {
-    // 💡 Example: Simulate a 2-second loading time for data
-    const timer = setTimeout(() => {
-      setIsLoading(false); // Set to false to show the main content
-    }, 3000);
-
-    // Cleanup function to clear the timer if the component unmounts
-    return () => clearTimeout(timer);
-  }, []); // The empty dependency array ensures this runs only once after the initial render
   const [isLoading, setIsLoading] = useState(true);
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
+
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contacts />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <AnimatePresence>
+      {isLoading ? (
+        <LoadingScreen key="loading" onLoaded={() => setIsLoading(false)} />
+      ) : (
+        <BrowserRouter>
+          <ScrollToTop />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contacts />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      )}
+    </AnimatePresence>
   );
 }
 
