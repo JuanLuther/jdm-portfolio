@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   useEffect(() => {
@@ -33,39 +34,39 @@ export const Header = () => {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Projects", href: "/projects" },
+    { name: "Contact", href: "/contact" },
   ];
   return (
     <header className="bg-white/95 backdrop-blur-custom shadow-sm sticky top-0 z-50 border-b border-gray-100">
       <nav className="container-custom flex items-center justify-between py-4">
         {/* Brand  */}
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="text-xl font-display font-semibold text-dark-teal flex items-center space-x-3 hover:text-dark-teal transition"
         >
           <img src="logo.svg" alt="Logo" className="h-10" />
           <p>Jerick Dale A. Mendoza</p>
-        </a>
+        </Link>
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-8 text-slate font-medium items-center py-2">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="nav-link hover:text-dark-teal">
+              <Link to={link.href} className="nav-link hover:text-dark-teal">
                 {link.name}
-              </a>
+              </Link>
             </li>
           ))}
           <li>
-            <a
-              href="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
+            <Link
+              to="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
               target="_blank"
               className="block btn-primary px-6 py-2 rounded-lg font-semibold text-center border border-slate hover:bg-white hover:text-slate transition-all duration-300"
             >
               <i className="fas fa-file-alt mr-2"></i>Resume
-            </a>
+            </Link>
           </li>
         </ul>
         {/* Hamburger Button */}
@@ -89,22 +90,22 @@ export const Header = () => {
       >
         {navLinks.map((link) => (
           <li key={link.href}>
-            <a
-              href={link.href}
+            <Link
+              to={link.href}
               className="block hover:text-dark-teal transition py-2"
             >
               {link.name}
-            </a>
+            </Link>
           </li>
         ))}
         <li>
-          <a
-            href="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
+          <Link
+            to="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
             target="_blank"
             className="block btn-secondary px-6 py-2 rounded-lg font-semibold text-center border border-lavender hover:bg-lavender hover:text-white transition-all duration-300"
           >
             <i className="fas fa-file-alt mr-2"></i>Resume
-          </a>
+          </Link>
         </li>
       </ul>
     </header>
