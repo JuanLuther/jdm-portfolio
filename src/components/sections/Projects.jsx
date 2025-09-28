@@ -1,9 +1,3 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { LoadingScreen } from "../common/LoadingScreen";
-// Import motion from framer-motion
-import { motion } from "framer-motion";
-
 export const Projects = () => {
   const projects = [
     {
@@ -53,31 +47,12 @@ export const Projects = () => {
   };
 
   // 2. Define variants for individual project cards
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 80,
-        damping: 12,
-      },
-    },
-  };
 
   return (
     <section id="projects" className="section-padding bg-gray-50">
       <div className="container-custom">
         {/* Animated Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="text-center mb-16">
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4">
             My Projects
           </h2>
@@ -86,10 +61,10 @@ export const Projects = () => {
             Here are some of my recent projects that showcase my skills and
             passion for web development.
           </p>
-        </motion.div>
+        </div>
 
         {/* Animated Project Grid */}
-        <motion.div
+        <div
           id="projects-grid"
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
           variants={containerVariants}
@@ -101,13 +76,12 @@ export const Projects = () => {
           {projects
             .filter((project) => project.display)
             .map((project, index) => (
-              <motion.a
+              <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card group cursor-pointer h-full"
                 key={index}
-                variants={cardVariants} // Apply animation to each card
               >
                 <div className="bg-white rounded-2xl card-shadow card-hover overflow-hidden border border-gray-100">
                   {/* Project Image */}
@@ -144,9 +118,9 @@ export const Projects = () => {
                     </div>
                   </div>
                 </div>
-              </motion.a>
+              </a>
             ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

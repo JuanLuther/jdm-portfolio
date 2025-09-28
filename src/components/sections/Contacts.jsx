@@ -1,51 +1,7 @@
 import React from "react";
-// Import motion from framer-motion
-import { motion } from "framer-motion";
 
 export const Contacts = () => {
   const SERVER = import.meta.env.VITE_API_URL || "http://localhost:3000";
-
-  // 1. Define variants for the contact form block (slide up)
-  const formVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 80,
-        damping: 10,
-        delay: 0.3, // Delay the form appearance slightly
-      },
-    },
-  };
-
-  // 2. Define variants for the social links (staggered)
-  const socialContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delay: 0.8, // Delay the social icons after the form
-      },
-    },
-  };
-
-  // 3. Define variants for individual social icons (pop-up)
-  const socialItemVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 15,
-      },
-    },
-  };
 
   React.useEffect(() => {
     // Form submission feedback
@@ -127,13 +83,7 @@ export const Contacts = () => {
 
       <div className="container-custom relative z-10">
         {/* Animated Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="text-center mb-16">
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
             Get In Touch
           </h2>
@@ -142,17 +92,11 @@ export const Contacts = () => {
             I'm always open to discussing new opportunities and interesting
             projects. Let's create something amazing together!
           </p>
-        </motion.div>
+        </div>
 
         <div className="max-w-2xl mx-auto">
           {/* Animated Contact Form Block */}
-          <motion.div
-            className="bg-white/10 backdrop-blur-custom rounded-2xl p-8 lg:p-12 border border-white/20"
-            variants={formVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
+          <div className="bg-white/10 backdrop-blur-custom rounded-2xl p-8 lg:p-12 border border-white/20">
             <form
               action="#"
               method="POST"
@@ -209,41 +153,32 @@ export const Contacts = () => {
               id="contact-feedback"
               className="mt-6 text-center text-lg font-semibold text-lavender"
             ></div>
-          </motion.div>
+          </div>
 
           {/* Animated Social Links Container */}
-          <motion.div
-            className="flex justify-center gap-6 mt-12"
-            variants={socialContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <motion.a
+          <div className="flex justify-center gap-6 mt-12">
+            <a
               href="https://github.com/JuanLuther"
               target="_blank"
               className="w-12 h-12 bg-white/10 backdrop-blur-custom rounded-full flex items-center justify-center text-white hover:bg-lavender hover:text-dark-teal transition-all duration-300 hover:scale-110 border border-white/20"
-              variants={socialItemVariants}
             >
               <i className="fab fa-github text-xl"></i>
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="https://www.linkedin.com/in/jerick-dale-mendoza-343b45190/"
               target="_blank"
               className="w-12 h-12 bg-white/10 backdrop-blur-custom rounded-full flex items-center justify-center text-white hover:bg-lavender hover:text-dark-teal transition-all duration-300 hover:scale-110 border border-white/20"
-              variants={socialItemVariants}
             >
               <i className="fab fa-linkedin text-xl"></i>
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="https://www.facebook.com/jerickdalealejandromendoza"
               target="_blank"
               className="w-12 h-12 bg-white/10 backdrop-blur-custom rounded-full flex items-center justify-center text-white hover:bg-lavender hover:text-dark-teal transition-all duration-300 hover:scale-110 border border-white/20"
-              variants={socialItemVariants}
             >
               <i className="fab fa-facebook text-xl"></i>
-            </motion.a>
-          </motion.div>
+            </a>
+          </div>
         </div>
       </div>
     </section>

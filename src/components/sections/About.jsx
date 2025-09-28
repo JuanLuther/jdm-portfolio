@@ -1,6 +1,4 @@
 import React from "react";
-// Import motion from framer-motion
-import { motion } from "framer-motion";
 
 export const About = () => {
   const skills = {
@@ -33,47 +31,11 @@ export const About = () => {
     ],
   };
 
-  // 1. Define variants for the main section content
-  const sectionVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15, // Stagger animation between major content blocks
-      },
-    },
-  };
-
-  // 2. Define variants for individual card/block elements
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 70,
-        damping: 10,
-      },
-    },
-  };
-
-  // 3. Define variants for the skill tags (fading in)
-  const skillTagVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.2 } },
-  };
-
   return (
     <section id="about" className="section-padding bg-white">
       <div className="container-custom">
         {/* Animated Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="text-center mb-16">
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4">
             About Me
           </h2>
@@ -82,20 +44,13 @@ export const About = () => {
             Passionate about creating exceptional digital experiences through
             clean code and thoughtful design.
           </p>
-        </motion.div>
+        </div>
 
         {/* Animated Main Content Grid */}
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12"
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible" // Animate when the element comes into view
-          viewport={{ once: true, amount: 0.2 }} // Only animate once
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* About Image */}
-          <motion.div
+          <div
             className="lg:col-span-2"
-            variants={cardVariants}
             style={{ display: "none" }} // Retaining 'hidden' prop behavior via style
           >
             <div className="h-full relative">
@@ -108,10 +63,10 @@ export const About = () => {
               </div>
               <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-lavender rounded-2xl -z-10"></div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Introduction Card */}
-          <motion.div className="lg:col-span-2" variants={cardVariants}>
+          <div className="lg:col-span-2">
             <div className="h-full bg-cream rounded-2xl p-8 card-hover">
               <h3 className="font-display text-2xl font-semibold text-dark-teal mb-4">
                 Introduction
@@ -124,10 +79,10 @@ export const About = () => {
                 grow as a junior developer.
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Education Card */}
-          <motion.div className="lg:col-span-2" variants={cardVariants}>
+          <div className="lg:col-span-2">
             <div className="h-full bg-white rounded-2xl p-8 card-shadow card-hover border border-gray-100">
               <h3 className="font-display text-2xl font-semibold text-dark-teal mb-6 flex items-center">
                 <i className="fas fa-graduation-cap mr-3 text-slate"></i>
@@ -149,29 +104,25 @@ export const About = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Skills Section (Container for Skill Categories) */}
           <div className="lg:col-span-4 space-y-8">
-            <motion.div
-              className="h-full"
-              variants={cardVariants} // Apply the same card animation for the whole skills block
-            >
+            <div className="h-full">
               <h3 className="font-display text-2xl font-semibold text-dark-teal mb-6 flex items-center">
                 <i className="fas fa-code mr-3 text-slate"></i>Technical Skills
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 {/* Skill Category Cards - Staggered Child Animation for each category */}
                 {Object.keys(skills).map((category, index) => (
-                  <motion.div
+                  <div
                     key={index}
                     className="rounded-2xl p-8 space-y-4 bg-white card-shadow card-hover border border-gray-100"
-                    variants={cardVariants} // Apply card animation to each category
                   >
                     <h4 className="font-semibold text-slate text-lg border-b-2 border-lavender pb-2">
                       {category}
                     </h4>
-                    <motion.div
+                    <div
                       className="flex flex-wrap gap-2"
                       initial="hidden"
                       animate="visible"
@@ -185,21 +136,20 @@ export const About = () => {
                     >
                       {/* Individual Skill Tags Animation */}
                       {skills[category].map((lang, index) => (
-                        <motion.span
+                        <span
                           className="skill-tag px-3 py-1 rounded-full text-sm font-medium"
                           key={index}
-                          variants={skillTagVariants}
                         >
                           {lang}
-                        </motion.span>
+                        </span>
                       ))}
-                    </motion.div>
-                  </motion.div>
+                    </div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
