@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Header = () => {
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navLinks = [
     { name: "Home", href: "/" },
@@ -24,7 +25,12 @@ export const Header = () => {
         <ul className="hidden md:flex space-x-8 text-slate font-medium items-center py-2">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link to={link.href} className="nav-link hover:text-dark-teal">
+              <Link
+                to={link.href}
+                className={`nav-link hover:text-dark-teal ${
+                  location.pathname === link.href ? "active" : ""
+                }`}
+              >
                 {link.name}
               </Link>
             </li>
@@ -42,12 +48,26 @@ export const Header = () => {
         {/* Hamburger Button */}
         <div
           id="hamburger"
-          className="md:hidden flex flex-col space-y-1 cursor-pointer group"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden cursor-pointer group"
+          onClick={() => {
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+          }}
         >
-          <span className="block w-6 h-0.5 bg-slate transition-all duration-300 group-hover:bg-dark-teal"></span>
-          <span className="block w-6 h-0.5 bg-slate transition-all duration-300 group-hover:bg-dark-teal"></span>
-          <span className="block w-6 h-0.5 bg-slate transition-all duration-300 group-hover:bg-dark-teal"></span>
+          <span
+            className={`block w-6 h-0.5 bg-slate transition-all duration-300 group-hover:bg-dark-teal 
+      ${isMobileMenuOpen ? "rotate-45 translate-y-[5.7px]" : ""} 
+    `}
+          ></span>
+          <span
+            className={`block w-6 h-0.5 bg-slate transition-all duration-300 my-[4px] group-hover:bg-dark-teal 
+      ${isMobileMenuOpen ? "opacity-0" : ""} 
+    `}
+          ></span>
+          <span
+            className={`block w-6 h-0.5 bg-slate transition-all duration-300 group-hover:bg-dark-teal 
+      ${isMobileMenuOpen ? "-rotate-45 -translate-y-[5.7px]" : ""} 
+    `}
+          ></span>{" "}
         </div>
       </nav>
 
@@ -62,8 +82,11 @@ export const Header = () => {
           <li key={link.href}>
             <Link
               to={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block hover:text-dark-teal transition py-2"
+              // onClick={() => setIsMobileMenuOpen(false)}
+              className={
+                "nav-link block hover:text-dark-teal transition py-2 w-fit" +
+                (location.pathname === link.href ? " active" : "")
+              }
             >
               {link.name}
             </Link>
@@ -72,9 +95,9 @@ export const Header = () => {
         <li>
           <Link
             to="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
-            onClick={() => setIsMobileMenuOpen(false)}
+            // onClick={() => setIsMobileMenuOpen(false)}
             target="_blank"
-            className="block btn-secondary px-6 py-2 rounded-lg font-semibold text-center border border-lavender hover:bg-lavender hover:text-white transition-all duration-300"
+            className="w-fit block btn-secondary px-6 py-2 rounded-lg font-semibold text-center border border-lavender hover:bg-lavender hover:text-white transition-all duration-300"
           >
             <i className="fas fa-file-alt mr-2"></i>Resume
           </Link>

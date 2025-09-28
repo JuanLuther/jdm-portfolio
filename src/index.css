@@ -158,6 +158,9 @@ body {
 .nav-link:hover::after {
   width: 100%;
 }
+.nav-link.active::after {
+  width: 100%;
+}
 
 .section-divider {
   width: 60px;
