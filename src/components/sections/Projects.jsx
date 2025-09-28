@@ -1,4 +1,6 @@
 import React from "react";
+// Import motion from framer-motion
+import { motion } from "framer-motion";
 
 export const Projects = () => {
   const projects = [
@@ -36,10 +38,44 @@ export const Projects = () => {
       display: true,
     },
   ];
+
+  // 1. Define variants for the project grid container
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Stagger animation for each project card
+      },
+    },
+  };
+
+  // 2. Define variants for individual project cards
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 12,
+      },
+    },
+  };
+
   return (
     <section id="projects" className="section-padding bg-gray-50">
       <div className="container-custom">
-        <div className="text-center mb-16">
+        {/* Animated Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4">
             My Projects
           </h2>
@@ -48,22 +84,28 @@ export const Projects = () => {
             Here are some of my recent projects that showcase my skills and
             passion for web development.
           </p>
-        </div>
+        </motion.div>
 
-        <div
+        {/* Animated Project Grid */}
+        <motion.div
           id="projects-grid"
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible" // Animate when the grid comes into view
+          viewport={{ once: true, amount: 0.1 }}
         >
-          {/* Project Card Example */}
+          {/* Project Card Iteration */}
           {projects
             .filter((project) => project.display)
             .map((project, index) => (
-              <a
+              <motion.a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card group cursor-pointer h-full"
                 key={index}
+                variants={cardVariants} // Apply animation to each card
               >
                 <div className="bg-white rounded-2xl card-shadow card-hover overflow-hidden border border-gray-100">
                   {/* Project Image */}
@@ -71,7 +113,7 @@ export const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-dark-teal/0 group-hover:bg-dark-teal/10 transition-all duration-300"></div>
                     <div className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg">
@@ -100,9 +142,9 @@ export const Projects = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

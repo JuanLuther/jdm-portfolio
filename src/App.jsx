@@ -15,7 +15,7 @@ function App() {
     // 💡 Example: Simulate a 2-second loading time for data
     const timer = setTimeout(() => {
       setIsLoading(false); // Set to false to show the main content
-    }, 2000);
+    }, 3000);
 
     // Cleanup function to clear the timer if the component unmounts
     return () => clearTimeout(timer);
