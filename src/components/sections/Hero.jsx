@@ -2,41 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 // Import motion from framer-motion
 import { motion } from "framer-motion";
+import {
+  containerVariants,
+  itemVariants,
+  imageVariants,
+} from "../common/FramerMotions.js";
 
 export const Hero = () => {
-  // Define animation variants for staggered entrance
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1, // Delay between children animations
-      },
-    },
-  };
-
-  // Define animation for individual text elements
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
-  // Define animation for the image/card
-  const imageVariants = {
-    hidden: { scale: 0.8, opacity: 0, rotate: -5 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-        delay: 0.5, // Start image animation after a slight delay
-      },
-    },
-  };
-
   return (
     <section
       id="home"

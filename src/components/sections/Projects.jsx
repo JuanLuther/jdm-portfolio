@@ -1,3 +1,9 @@
+import { motion } from "framer-motion";
+import {
+  bottomVariants,
+  containerVariants,
+  itemVariants,
+} from "../common/FramerMotions.js";
 export const Projects = () => {
   const projects = [
     {
@@ -52,7 +58,14 @@ export const Projects = () => {
     <section id="projects" className="section-padding bg-gray-50">
       <div className="container-custom">
         {/* Animated Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
+          animate="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4">
             My Projects
           </h2>
@@ -61,23 +74,23 @@ export const Projects = () => {
             Here are some of my recent projects that showcase my skills and
             passion for web development.
           </p>
-        </div>
+        </motion.div>
 
         {/* Animated Project Grid */}
         <div
           id="projects-grid"
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible" // Animate when the grid comes into view
-          viewport={{ once: true, amount: 0.1 }}
         >
           {/* Project Card Iteration */}
           {projects
             .filter((project) => project.display)
             .map((project, index) => (
-              <a
+              <motion.a
+                variants={bottomVariants}
                 href={project.link}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card group cursor-pointer h-full"
@@ -118,7 +131,7 @@ export const Projects = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
         </div>
       </div>

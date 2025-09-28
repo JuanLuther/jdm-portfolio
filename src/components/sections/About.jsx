@@ -1,4 +1,14 @@
 import React from "react";
+import { motion } from "framer-motion";
+import {
+  containerVariants,
+  itemVariants,
+  imageVariants,
+  formVariants,
+  leftVariants,
+  rightVariants,
+  bottomVariants,
+} from "../common/FramerMotions.js";
 
 export const About = () => {
   const skills = {
@@ -33,9 +43,16 @@ export const About = () => {
 
   return (
     <section id="about" className="section-padding bg-white">
-      <div className="container-custom">
+      <motion.div
+        className="container-custom"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         {/* Animated Header */}
-        <div className="text-center mb-16">
+        <motion.div className="text-center mb-16" variants={itemVariants}>
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4">
             About Me
           </h2>
@@ -44,29 +61,12 @@ export const About = () => {
             Passionate about creating exceptional digital experiences through
             clean code and thoughtful design.
           </p>
-        </div>
+        </motion.div>
 
         {/* Animated Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* About Image */}
-          <div
-            className="lg:col-span-2"
-            style={{ display: "none" }} // Retaining 'hidden' prop behavior via style
-          >
-            <div className="h-full relative">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden card-shadow">
-                <img
-                  src="images/about-profile.jpg"
-                  alt="About Me"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-lavender rounded-2xl -z-10"></div>
-            </div>
-          </div>
-
           {/* Introduction Card */}
-          <div className="lg:col-span-2">
+          <motion.div className="lg:col-span-2" variants={leftVariants}>
             <div className="h-full bg-cream rounded-2xl p-8 card-hover">
               <h3 className="font-display text-2xl font-semibold text-dark-teal mb-4">
                 Introduction
@@ -79,10 +79,10 @@ export const About = () => {
                 grow as a junior developer.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Education Card */}
-          <div className="lg:col-span-2">
+          <motion.div className="lg:col-span-2" variants={rightVariants}>
             <div className="h-full bg-white rounded-2xl p-8 card-shadow card-hover border border-gray-100">
               <h3 className="font-display text-2xl font-semibold text-dark-teal mb-6 flex items-center">
                 <i className="fas fa-graduation-cap mr-3 text-slate"></i>
@@ -104,18 +104,25 @@ export const About = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Skills Section (Container for Skill Categories) */}
           <div className="lg:col-span-4 space-y-8">
             <div className="h-full">
-              <h3 className="font-display text-2xl font-semibold text-dark-teal mb-6 flex items-center">
+              <motion.h3
+                variants={itemVariants}
+                className="font-display text-2xl font-semibold text-dark-teal mb-6 flex items-center"
+              >
                 <i className="fas fa-code mr-3 text-slate"></i>Technical Skills
-              </h3>
+              </motion.h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 {/* Skill Category Cards - Staggered Child Animation for each category */}
                 {Object.keys(skills).map((category, index) => (
-                  <div
+                  <motion.div
+                    variants={bottomVariants}
+                    whileInView="visible"
+                    initial="hidden"
+                    viewport={{ once: true, amount: 0.3 }}
                     key={index}
                     className="rounded-2xl p-8 space-y-4 bg-white card-shadow card-hover border border-gray-100"
                   >
@@ -144,13 +151,13 @@ export const About = () => {
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
