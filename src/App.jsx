@@ -11,7 +11,7 @@ import { BrowserRouter, Route, Routes, HashRouter } from "react-router-dom";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop />
       <Header />
       <Routes>
@@ -21,7 +21,7 @@ function App() {
         <Route path="/contact" element={<Contacts />} />
       </Routes>
       <Footer />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
