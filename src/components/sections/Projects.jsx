@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import {
   bottomVariants,
   containerVariants,
+  imageVariants,
   itemVariants,
 } from "../common/FramerMotions.js";
+import { image } from "framer-motion/client";
 export const Projects = () => {
   const projects = [
     {
@@ -60,20 +62,27 @@ export const Projects = () => {
         {/* Animated Header */}
         <motion.div
           className="text-center mb-16"
-          variants={itemVariants}
+          variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
           animate="visible"
-          viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4">
+          <motion.h2
+            variants={itemVariants}
+            className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4"
+          >
             My Projects
-          </h2>
-          <div className="section-divider"></div>
-          <p className="text-slate text-lg max-w-2xl mx-auto text-balance">
+          </motion.h2>
+          <motion.div
+            variants={itemVariants}
+            className="section-divider"
+          ></motion.div>
+          <motion.p
+            variants={itemVariants}
+            className="text-slate text-lg max-w-2xl mx-auto text-balance"
+          >
             Here are some of my recent projects that showcase my skills and
             passion for web development.
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Animated Project Grid */}
@@ -85,12 +94,8 @@ export const Projects = () => {
           {projects
             .filter((project) => project.display)
             .map((project, index) => (
-              <motion.a
-                variants={bottomVariants}
+              <a
                 href={project.link}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card group cursor-pointer h-full"
@@ -98,8 +103,17 @@ export const Projects = () => {
               >
                 <div className="bg-white rounded-2xl card-shadow card-hover overflow-hidden border border-gray-100">
                   {/* Project Image */}
-                  <div className="relative overflow-hidden">
-                    <img
+                  <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="relative overflow-hidden"
+                  >
+                    <motion.img
+                      variants={itemVariants}
+                      initial="hidden"
+                      whileInView={"visible"}
+                      viewport={{ once: true, amount: 0.6 }}
                       src={project.image}
                       alt={project.title}
                       className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
@@ -108,30 +122,50 @@ export const Projects = () => {
                     <div className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg">
                       <i className="fas fa-external-link-alt text-slate text-sm"></i>
                     </div>
-                  </div>
+                  </motion.div>
                   {/* Project Details */}
-                  <div className="p-6">
-                    <h3 className="font-display text-2xl font-semibold mb-3 text-dark-teal group-hover:text-slate transition-colors">
+                  <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    animate="visible"
+                    viewport={{ once: true, amount: 0.6 }}
+                    className="p-6"
+                  >
+                    <motion.h3
+                      variants={itemVariants}
+                      className="font-display text-2xl font-semibold mb-3 text-dark-teal group-hover:text-slate transition-colors"
+                    >
                       {project.title}
-                    </h3>
-                    <p className="text-slate mb-6 leading-relaxed">
+                    </motion.h3>
+                    <motion.p
+                      variants={itemVariants}
+                      initial="hidden"
+                      whileInView={"visible"}
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="text-slate mb-6 leading-relaxed"
+                    >
                       {project.description}
-                    </p>
+                    </motion.p>
 
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, index) => (
-                        <span
+                        <motion.span
+                          variants={itemVariants}
+                          initial="hidden"
+                          whileInView={"visible"}
+                          viewport={{ once: true, amount: 0.2 }}
                           className="skill-tag px-3 py-1 rounded-full text-xs font-medium mb-6"
                           key={index}
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
-              </motion.a>
+              </a>
             ))}
         </div>
       </div>
