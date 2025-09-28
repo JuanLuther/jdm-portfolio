@@ -7,11 +7,11 @@ import { About } from "./components/sections/About";
 import { Projects } from "./components/sections/Projects";
 import { Contacts } from "./components/sections/Contacts";
 import { ScrollToTop } from "./components/common/ScrollToTop";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, HashRouter } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <Header />
       <Routes>
@@ -21,7 +21,7 @@ function App() {
         <Route path="/contact" element={<Contacts />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
