@@ -2,36 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
-  useEffect(() => {
-    const mobileMenu = document.getElementById("mobile-menu");
-    const anchors = document.querySelectorAll('a[href^="#"]');
-
-    // Define the handler function here (to maintain a stable reference)
-    const scrollHandler = function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        mobileMenu.classList.add("hidden");
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    };
-
-    // 1. ATTACH the listener using the stable reference
-    anchors.forEach((anchor) => {
-      anchor.addEventListener("click", scrollHandler);
-    });
-
-    return () => {
-      // 2. DETACH the listener using the SAME stable reference
-      anchors.forEach((anchor) => {
-        anchor.removeEventListener("click", scrollHandler);
-      });
-    };
-  }, []);
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navLinks = [
     { name: "Home", href: "/" },
@@ -42,14 +12,14 @@ export const Header = () => {
   return (
     <header className="bg-white/95 backdrop-blur-custom shadow-sm sticky top-0 z-50 border-b border-gray-100">
       <nav className="container-custom flex items-center justify-between py-4">
-        {/* Brand  */}
-        <Link
-          to="/"
+        {/* Brand */}
+        <a
+          href="/"
           className="text-xl font-display font-semibold text-dark-teal flex items-center space-x-3 hover:text-dark-teal transition"
         >
           <img src="logo.svg" alt="Logo" className="h-10" />
           <p>Jerick Dale A. Mendoza</p>
-        </Link>
+        </a>
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-8 text-slate font-medium items-center py-2">
           {navLinks.map((link) => (
@@ -92,6 +62,7 @@ export const Header = () => {
           <li key={link.href}>
             <Link
               to={link.href}
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block hover:text-dark-teal transition py-2"
             >
               {link.name}
@@ -101,6 +72,7 @@ export const Header = () => {
         <li>
           <Link
             to="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
+            onClick={() => setIsMobileMenuOpen(false)}
             target="_blank"
             className="block btn-secondary px-6 py-2 rounded-lg font-semibold text-center border border-lavender hover:bg-lavender hover:text-white transition-all duration-300"
           >
