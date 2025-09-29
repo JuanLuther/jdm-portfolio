@@ -115,7 +115,7 @@ export const Contacts = () => {
         >
           {/* Animated Contact Form Block */}
           <motion.div
-            variants={imageVariants}
+            variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
