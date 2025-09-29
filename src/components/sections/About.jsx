@@ -1,14 +1,12 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
   containerVariants,
   itemVariants,
-  imageVariants,
-  formVariants,
   leftVariants,
   rightVariants,
   bottomVariants,
 } from "../common/FramerMotions.js";
+import { SectionHeader } from "../common/headers/SectionHeader.jsx";
 
 export const About = () => {
   const skills = {
@@ -52,30 +50,11 @@ export const About = () => {
         viewport={{ once: true, amount: 0.3 }}
       >
         {/* Animated Header */}
-        <motion.div
-          className="text-center mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView={"visible"}
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4"
-          >
-            About Me
-          </motion.h2>
-          <motion.div
-            variants={itemVariants}
-            className="section-divider"
-          ></motion.div>
-          <motion.p
-            variants={itemVariants}
-            className="text-slate text-lg max-w-2xl mx-auto text-balance"
-          >
-            Passionate about creating exceptional digital experiences through
-            clean code and thoughtful design.
-          </motion.p>
-        </motion.div>
+        <SectionHeader
+          title="About Me"
+          caption="Passionate about creating exceptional digital experiences through
+            clean code and thoughtful design."
+        />
 
         {/* Animated Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">

@@ -8,7 +8,10 @@ const containerVariants = {
     },
   },
 };
-
+const itemRevealVariants = {
+  hidden: { opacity: 0, y: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 // Define animation for individual text elements
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -66,4 +69,5 @@ export {
   rightVariants,
   topVariants,
   bottomVariants,
+  itemRevealVariants,
 };

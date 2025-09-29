@@ -5,6 +5,7 @@ import {
   imageVariants,
   itemVariants,
 } from "../common/FramerMotions.js";
+import { SectionHeaderDark } from "../common/headers/SectionHeaderDark.jsx";
 
 export const Contacts = () => {
   const SERVER = import.meta.env.VITE_API_URL || "http://localhost:3000";
@@ -100,32 +101,11 @@ export const Contacts = () => {
 
       <div className="container-custom relative z-10">
         {/* Animated Header */}
-        <motion.div
-          className="text-center mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          animate="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="font-display text-4xl lg:text-5xl font-bold text-white mb-4"
-          >
-            Get In Touch
-          </motion.h2>
-          <motion.div
-            variants={itemVariants}
-            className="w-60 h-3 bg-lavender mx-auto rounded-full mb-4"
-          ></motion.div>
-          <motion.p
-            variants={itemVariants}
-            className="text-cream text-lg max-w-2xl mx-auto text-balance"
-          >
-            I'm always open to discussing new opportunities and interesting
-            projects. Let's create something amazing together!
-          </motion.p>
-        </motion.div>
+        <SectionHeaderDark
+          title="Get In Touch"
+          caption="I'm always open to discussing new opportunities and interesting
+            projects. Let's create something amazing together!"
+        />
 
         <motion.div
           variants={containerVariants}
@@ -138,7 +118,7 @@ export const Contacts = () => {
             variants={imageVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
             className="bg-white/10 backdrop-blur-custom rounded-2xl p-8 lg:p-12 border border-white/20"
           >
             <form
@@ -172,6 +152,18 @@ export const Contacts = () => {
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-transparent text-white placeholder-cream/70 backdrop-blur-custom transition-all"
                   />
                 </div>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-cream block">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  required
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-transparent text-white placeholder-cream/70 backdrop-blur-custom transition-all"
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-cream block">

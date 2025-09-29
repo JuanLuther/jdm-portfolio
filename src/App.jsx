@@ -7,7 +7,7 @@ import { About } from "./components/sections/About";
 import { Projects } from "./components/sections/Projects";
 import { Contacts } from "./components/sections/Contacts";
 import { ScrollToTop } from "./components/common/ScrollToTop";
-import { LoadingScreen } from "./components/common/LoadingScreen";
+import { LoadingScreen } from "./components/common/loading/LoadingScreen";
 import { BrowserRouter, Route, Routes, HashRouter } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
