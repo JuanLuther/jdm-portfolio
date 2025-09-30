@@ -3,9 +3,9 @@ const skills = {
     "TypeScript",
     "JavaScript",
     "Python",
-    "Java",
     "PHP",
-    "C#",
+    // "Java",
+    // "C#",
   ],
   "Frontend Development": [
     "HTML5 & CSS3",
