@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import navLinks from "../data/navLinks";
 
 export const Header = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Contact", href: "/contact" },
-  ];
   return (
     <header className="bg-white/95 backdrop-blur-custom shadow-sm sticky top-0 z-50 border-b border-gray-100">
       <nav className="container-custom flex items-center justify-between py-4">

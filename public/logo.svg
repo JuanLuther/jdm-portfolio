@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    xml:space="preserve"
-   sodipodi:docname="drawing.svg"
+   sodipodi:docname="logo.svg"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    inkscape:export-filename="drawing.svg"
    inkscape:export-xdpi="96"
@@ -36,7 +36,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"><inkscape:page
+     inkscape:current-layer="svg1"><inkscape:page
        x="0"
        y="0"
        width="120"
@@ -44,7 +44,13 @@
        id="page2"
        margin="0"
        bleed="0" /></sodipodi:namedview><defs
-     id="defs1" /><image
+     id="defs1" /><circle
+     style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke-width:1.31168"
+     id="path1"
+     cx="61.24889"
+     cy="61.810314"
+     r="49.753563"
+     inkscape:label="background" /><image
      width="119.71535"
      height="119.73486"
      preserveAspectRatio="none"

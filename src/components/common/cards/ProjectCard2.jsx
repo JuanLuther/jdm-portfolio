@@ -12,18 +12,13 @@ export const ProjectCard2 = ({ project, index }) => {
     <div className="project-card group cursor-pointer h-full" key={index}>
       <div className="bg-white rounded-2xl card-shadow card-hover overflow-hidden border border-gray-100">
         {/* Project Image */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="relative overflow-hidden"
-        >
+        <div className="relative overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
             className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
           />
-        </motion.div>
+        </div>
         {/* Project Details */}
         <motion.div
           variants={containerVariants}

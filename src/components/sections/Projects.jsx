@@ -1,47 +1,7 @@
-import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "../common/FramerMotions.js";
 import { ProjectCard2 } from "../common/cards/ProjectCard2.jsx";
 import { SectionHeader } from "../common/headers/SectionHeader.jsx";
+import projects from "../data/projects.js";
 export const Projects = () => {
-  const projects = [
-    {
-      title: "Eisenhower Task Prioritizer",
-      description:
-        "A single-page app to organize, prioritize, and manage daily tasks efficiently using the Eisenhower Matrix methodology.",
-      technologies: ["HTML5", "CSS3", "JavaScript"],
-      image: "images/task-prioritizer.jpg",
-      link: "https://task-prioritizer-nu.vercel.app/",
-      repository: "https://github.com/JuanLuther/task-prioritizer",
-      display: true,
-    },
-    {
-      title: "Lovey",
-      description:
-        "A dedication platform for my beloved girlfriend, showcasing our journey and special moments together.",
-      technologies: ["HTML5", "CSS3", "JavaScript"],
-      image: "images/us.jfif",
-      link: "https://lovey-ten.vercel.app/",
-      repository: "https://github.com/JuanLuther/lovey",
-      display: false,
-    },
-    {
-      title: "Architecture Website",
-      description:
-        "A modern architecture website showcasing innovative designs, project portfolios, and industry insights with responsive design.",
-      technologies: [
-        "Tailwind CSS",
-        "Next.js",
-        "TypeScript",
-        "Node.js",
-        "MongoDB",
-      ],
-      image: "images/ae-architect.jpg",
-      link: "https://ae-architect.vercel.app/",
-      repository: "https://github.com/JuanLuther/ae-architect",
-      display: true,
-    },
-  ];
-
   return (
     <section id="projects" className="section-padding bg-gray-50">
       <div className="container-custom">
@@ -61,7 +21,7 @@ export const Projects = () => {
           {projects
             .filter((project) => project.display)
             .map((project, index) => (
-              <ProjectCard2 project={project} index={index} />
+              <ProjectCard2 project={project} index={index} key={index} />
             ))}
         </div>
       </div>

@@ -5,40 +5,12 @@ import {
   leftVariants,
   rightVariants,
   bottomVariants,
+  itemRevealVariants,
 } from "../common/FramerMotions.js";
 import { SectionHeader } from "../common/headers/SectionHeader.jsx";
+import skills from "../data/skills.js";
 
 export const About = () => {
-  const skills = {
-    "Programming Languages": [
-      "TypeScript",
-      "JavaScript",
-      "Python",
-      "Java",
-      "PHP",
-      "C#",
-    ],
-    "Frontend Development": [
-      "HTML5 & CSS3",
-      "React.js",
-      "Vue.js",
-      "Tailwind CSS",
-    ],
-    "Backend Development": [
-      "Node.js",
-      "Express.js",
-      "MySQL",
-      "PostgreSQL",
-      "Flask",
-    ],
-    "Tools & Technologies": [
-      "Git & GitHub",
-      "VS Code",
-      "Docker",
-      "Android Studio",
-    ],
-  };
-
   return (
     <section id="about" className="section-padding bg-white">
       <motion.div
@@ -112,7 +84,7 @@ export const About = () => {
                 {/* Skill Category Cards - Staggered Child Animation for each category */}
                 {Object.keys(skills).map((category, index) => (
                   <motion.div
-                    variants={bottomVariants}
+                    variants={itemRevealVariants}
                     whileInView="visible"
                     initial="hidden"
                     viewport={{ once: true, amount: 0.3 }}

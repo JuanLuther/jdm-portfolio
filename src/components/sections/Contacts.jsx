@@ -114,13 +114,7 @@ export const Contacts = () => {
           className="max-w-2xl mx-auto"
         >
           {/* Animated Contact Form Block */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="bg-white/10 backdrop-blur-custom rounded-2xl p-8 lg:p-12 border border-white/20"
-          >
+          <div className="bg-white/10 backdrop-blur-custom rounded-2xl p-8 lg:p-12 border border-white/20">
             <form
               action="#"
               method="POST"
@@ -189,7 +183,7 @@ export const Contacts = () => {
               id="contact-feedback"
               className="mt-6 text-center text-lg font-semibold text-lavender"
             ></div>
-          </motion.div>
+          </div>
 
           {/* Animated Social Links Container */}
           <motion.div
