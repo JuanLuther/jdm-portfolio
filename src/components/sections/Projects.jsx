@@ -3,7 +3,7 @@ import { SectionHeader } from "../common/headers/SectionHeader.jsx";
 import projects from "../data/projects.js";
 export const Projects = () => {
   return (
-    <section id="projects" className="section-padding bg-gray-50">
+    <section id="projects" className="min-h-screen section-padding bg-gray-50">
       <div className="container-custom">
         {/* Animated Header */}
         <SectionHeader

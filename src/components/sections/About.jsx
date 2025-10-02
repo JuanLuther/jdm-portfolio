@@ -12,7 +12,7 @@ import skills from "../data/skills.js";
 
 export const About = () => {
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="min-h-screen section-padding bg-white">
       <motion.div
         className="container-custom"
         variants={containerVariants}
