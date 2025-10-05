@@ -13,7 +13,8 @@ export const Header = () => {
           href="/"
           className="text-xl font-display font-semibold text-dark-teal flex items-center space-x-3 hover:text-dark-teal transition"
         >
-          <img src="logo-text.svg" alt="Logo" className="h-12" />
+          <img src="logo.svg" alt="Logo" className="h-10" />
+          <p className="text-nowrap select-none">Jerick Dale A. Mendoza</p>
         </a>
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-8 text-slate font-medium items-center py-2">
