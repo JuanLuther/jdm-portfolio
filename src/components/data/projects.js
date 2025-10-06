@@ -7,7 +7,7 @@ const projects = [
     image: "images/task-prioritizer.jpg",
     link: "https://task-prioritizer-nu.vercel.app/",
     repository: "https://github.com/JuanLuther/task-prioritizer",
-    display: true,
+    display: false,
   },
   {
     title: "Lovey",
@@ -20,9 +20,25 @@ const projects = [
     display: false,
   },
   {
+    title: "FreshPondPH",
+    description:
+      "An e-commerce website for buying and selling aquaculture products.",
+    technologies: [
+      "Tailwind CSS",
+      "Next.js",
+      "Javascript",
+      "Node.js",
+      "Firebase",
+    ],
+    image: "images/freshpondph.jpg",
+    link: "https://freshpondph.vercel.app/",
+    repository: "",
+    display: true,
+  },
+  {
     title: "Architecture Website",
     description:
-      "A modern architecture website showcasing innovative designs, project portfolios, and industry insights with responsive design.",
+      "A website for an architectural firm to showcase their on-going and completed projects.",
     technologies: [
       "Tailwind CSS",
       "Next.js",

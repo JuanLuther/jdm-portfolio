@@ -1,11 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  containerVariants,
-  itemVariants,
-  itemRevealVariants,
-} from "../FramerMotions.js";
+import { containerVariants, itemVariants } from "../FramerMotions.js";
 
 export const ProjectCard2 = ({ project, index }) => {
   return (
@@ -52,7 +48,7 @@ export const ProjectCard2 = ({ project, index }) => {
                 initial="hidden"
                 whileInView={"visible"}
                 viewport={{ once: true, amount: 0.2 }}
-                className="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-lg text-sm font-medium border border-amber-200 hover:bg-amber-100 hover:border-amber-300 transition-colors cursor-default text-xs"
+                className="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-lg font-medium border border-amber-200 hover:bg-amber-100 hover:border-amber-300 transition-colors cursor-default text-xs"
                 key={index}
               >
                 {tech}
@@ -66,15 +62,36 @@ export const ProjectCard2 = ({ project, index }) => {
               target="_blank"
               className="flex-1 bg-slate-800 text-white py-3 px-4 rounded-lg font-semibold hover:bg-slate-900 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
             >
-              <i className="fas fa-desktop mr-2"></i>Demo
+              <i className="fas fa-desktop mr-2"></i>
+              <span className="hidden lg:block">Demo</span>
             </Link>
-            <Link
-              to={project.repository}
-              target="_blank"
-              className="flex-1 bg-white text-slate-800 py-3 px-4 rounded-lg font-semibold border-2 border-slate-800 hover:bg-slate-800 hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-            >
-              <i className="fab fa-github mr-2"></i>View Code
-            </Link>
+            {project.repository ? (
+              // 1. Render when a repository link EXISTS (The Active Button)
+              <Link
+                to={project.repository}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-white text-slate-800 py-3 px-4 rounded-lg font-semibold border-2 border-slate-800 
+               hover:bg-slate-800 hover:text-white transition-all duration-300 
+               flex items-center justify-center gap-2"
+              >
+                <i className="fab fa-github mr-2"></i>{" "}
+                {/* Use imported SVG icon */}
+                <span className="hidden lg:block">View Code</span>
+              </Link>
+            ) : (
+              // 2. Render when the repository link is EMPTY (The Disabled Button)
+              <button
+                disabled
+                className="flex-1 py-3 px-4 rounded-lg font-semibold border-2 border-slate-400 
+               bg-slate-200 text-slate-400 cursor-not-allowed 
+               flex items-center justify-center gap-2"
+              >
+                <i className="fab fa-github mr-2"></i>
+                <span className="hidden lg:block">Code Unavailable</span>{" "}
+                {/* Changed text for clarity */}
+              </button>
+            )}
           </div>
         </motion.div>
       </div>
