@@ -10,6 +10,7 @@ import { ScrollToTop } from "./components/common/ScrollToTop";
 import { LoadingScreen } from "./components/common/loading/LoadingScreen";
 import { BrowserRouter, Route, Routes, HashRouter } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import BlogHome from "./components/sections/Blogs/BlogHome";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/blogs" element={<BlogHome />} />
             <Route path="/contact" element={<Contacts />} />
           </Routes>
           <Footer />

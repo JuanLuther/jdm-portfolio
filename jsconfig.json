@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      // The alias you want to use. The asterisk (*) is crucial.
+      "@/*": ["./src/*"]
+
+      // This tells VS Code: "When you see @/something, look inside ./src/something"
+    }
+  },
+  "include": ["src/**/*"]
+}

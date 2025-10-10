@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "../common/FramerMotions.js";
-import { SectionHeaderDark } from "../common/headers/SectionHeaderDark.jsx";
 import { ContactForm } from "../common/forms/ContactForm.jsx";
+import SectionDark from "../common/containers/SectionDark.jsx";
 
 export const Contacts = () => {
   const SERVER = import.meta.env.VITE_API_URL || "http://localhost:3000";
@@ -19,30 +19,12 @@ export const Contacts = () => {
   ];
 
   return (
-    <section
-      id="contact"
-      className="min-h-screen section-padding bg-dark-teal text-white relative overflow-hidden"
-    >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute top-0 left-0 w-full h-full"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 25% 25%, var(--lavender) 2px, transparent 2px)",
-            backgroundSize: "50px 50px",
-          }}
-        ></div>
-      </div>
-
-      <div className="container-custom relative z-10">
-        {/* Animated Header */}
-        <SectionHeaderDark
-          title="Get In Touch"
-          caption="I'm always open to discussing new opportunities and interesting
+    <>
+      <SectionDark
+        title="Get In Touch"
+        caption="I'm always open to discussing new opportunities and interesting
             projects. Let's create something amazing together!"
-        />
-
+      >
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -73,7 +55,7 @@ export const Contacts = () => {
             ))}
           </motion.div>
         </motion.div>
-      </div>
-    </section>
+      </SectionDark>
+    </>
   );
 };
