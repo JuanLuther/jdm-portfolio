@@ -4,7 +4,7 @@ import {
   leftVariants,
   rightVariants,
   itemRevealVariants,
-} from "@/components/common/FramerMotions.js";
+} from "@/components/data/FramerMotions.js";
 import skills from "@/components/data/skills.js";
 import Section from "@/components/common/containers/Section";
 

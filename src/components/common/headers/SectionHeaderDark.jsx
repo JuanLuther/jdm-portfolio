@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "../FramerMotions.js";
+import { containerVariants, itemVariants } from "../../data/FramerMotions.js";
 
 export const SectionHeaderDark = ({ title, caption }) => {
   return (

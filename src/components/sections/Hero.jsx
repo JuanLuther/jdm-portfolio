@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// Import motion from framer-motion
 import { motion } from "framer-motion";
 import {
   containerVariants,
   itemVariants,
   imageVariants,
-} from "../common/FramerMotions.js";
+} from "@/components/data/FramerMotions.js";
 
 export const Hero = () => {
   return (

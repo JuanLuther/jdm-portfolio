@@ -1,10 +1,8 @@
 import React from "react";
-import { SectionHeader } from "../../common/headers/SectionHeader";
-import Section from "../../common/containers/Section";
-import SectionDark from "../../common/containers/SectionDark";
+import Section from "@/components/common/containers/Section";
 
 const BlogHome = () => {
-  return <Section title={"Blogs"}>Hello World</Section>;
+  return <Section title={"Blogs"}></Section>;
 };
 
 export default BlogHome;

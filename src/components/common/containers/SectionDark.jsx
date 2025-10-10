@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { containerVariants } from "../FramerMotions";
+import { containerVariants } from "../../data/FramerMotions";
 import { SectionHeaderDark } from "../headers/SectionHeaderDark";
 
 const SectionDark = ({ title, caption, children }) => {

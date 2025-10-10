@@ -1,17 +1,15 @@
-import { ProjectCard2 } from "../common/cards/ProjectCard2.jsx";
-import { SectionHeader } from "../common/headers/SectionHeader.jsx";
-import projects from "../data/projects.js";
+import { ProjectCard2 } from "@/components/common/cards/ProjectCard2.jsx";
+import { SectionHeader } from "@/components/common/headers/SectionHeader.jsx";
+import projects from "@/components/data/projects.js";
+import Section from "@/components/common/containers/Section";
 export const Projects = () => {
   return (
-    <section id="projects" className="min-h-screen section-padding bg-gray-50">
-      <div className="container-custom">
-        {/* Animated Header */}
-        <SectionHeader
-          title="My Projects"
-          caption="Here are some of my recent projects that showcase my skills and passion
+    <>
+      <Section
+        title="My Projects"
+        caption="Here are some of my recent projects that showcase my skills and passion
         for web development."
-        />
-
+      >
         {/* Animated Project Grid */}
         <div
           id="projects-grid"
@@ -24,7 +22,7 @@ export const Projects = () => {
               <ProjectCard2 project={project} index={index} key={index} />
             ))}
         </div>
-      </div>
-    </section>
+      </Section>
+    </>
   );
 };

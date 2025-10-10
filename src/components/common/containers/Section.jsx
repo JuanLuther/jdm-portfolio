@@ -1,7 +1,7 @@
 import React from "react";
 import { SectionHeader } from "../headers/SectionHeader";
 import { motion } from "framer-motion";
-import { containerVariants } from "../FramerMotions";
+import { containerVariants } from "../../data/FramerMotions";
 
 const Section = ({ title, caption, children }) => {
   return (

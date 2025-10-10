@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { containerVariants, itemVariants } from "../FramerMotions.js";
+import { containerVariants, itemVariants } from "../../data/FramerMotions.js";
 
 export const ProjectCard2 = ({ project, index }) => {
   return (
