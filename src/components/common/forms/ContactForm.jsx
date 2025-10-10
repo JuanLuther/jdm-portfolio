@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { MessageSentCard } from "../cards/MessageSentCard";
+import Input from "../inputs/Input";
 
 export const ContactForm = () => {
   const [state, handleSubmit] = useForm("mvgwrzen");
@@ -12,35 +13,14 @@ export const ContactForm = () => {
       <form onSubmit={handleSubmit} id="contact-form" className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label
-              htmlFor="name"
-              className="text-sm font-medium text-cream block"
-            >
-              Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              placeholder="Your Name"
-              required
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-transparent text-white placeholder-cream/70 backdrop-blur-custom transition-all"
-            />
+            <Input text={"Name"} id={"name"} placeholder={"Your Name"} />
             <ValidationError prefix="Name" field="name" errors={state.errors} />
           </div>
           <div className="space-y-2">
-            <label
-              htmlFor="email"
-              className="text-sm font-medium text-cream block"
-            >
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="your.email@example.com"
-              required
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-transparent text-white placeholder-cream/70 backdrop-blur-custom transition-all"
+            <Input
+              text={"Email"}
+              id={"email"}
+              placeholder={"your.email@example.com"}
             />
             <ValidationError
               prefix="Email"
@@ -50,19 +30,7 @@ export const ContactForm = () => {
           </div>
         </div>
         <div className="space-y-2">
-          <label
-            htmlFor="subject"
-            className="text-sm font-medium text-cream block"
-          >
-            Subject
-          </label>
-          <input
-            id="subject"
-            name="subject"
-            placeholder="Subject"
-            required
-            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-transparent text-white placeholder-cream/70 backdrop-blur-custom transition-all"
-          />
+          <Input id={"subject"} placeholder={"Subject"} text={"Subject"} />
           <ValidationError
             prefix="Subject"
             field="subject"
@@ -70,20 +38,12 @@ export const ContactForm = () => {
           />
         </div>
         <div className="space-y-2">
-          <label
-            htmlFor="message"
-            className="text-sm font-medium text-cream block"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Tell me about your project or just say hello!"
-            required
-            rows="6"
-            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-transparent text-white placeholder-cream/70 backdrop-blur-custom resize-none transition-all"
-          ></textarea>
+          <Input
+            id={"message"}
+            placeholder={"Tell me about your project or just say hello!"}
+            text={"Message"}
+            type={"textarea"}
+          />
           <ValidationError
             prefix="Message"
             field="message"

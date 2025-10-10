@@ -7,14 +7,11 @@ import {
 } from "@/components/data/FramerMotions.js";
 import skills from "@/components/data/skills.js";
 import Section from "@/components/common/containers/Section";
+import SectionDark from "@/components/common/containers/SectionDark";
 
 export const About = () => {
   return (
-    <Section
-      title="About Me"
-      caption="Passionate about creating exceptional digital experiences through
-            clean code and thoughtful design."
-    >
+    <Section title="About Me">
       {/* Animated Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
         {/* Introduction Card */}
@@ -25,10 +22,9 @@ export const About = () => {
             </h3>
             <p className="text-slate leading-relaxed text-lg">
               I'm a passionate web developer focused on building maintainable,
-              scalable applications with vanilla JavaScript, PHP, and clean MVC
+              scalable applications with JavaScript, PHP, Python and clean MVC
               architecture. I love turning complex ideas into simple,
-              user-friendly solutions. Currently looking for opportunities to
-              grow as a junior developer.
+              user-friendly solutions.
             </p>
           </div>
         </motion.div>
@@ -50,7 +46,10 @@ export const About = () => {
               <p className="text-gray-500 flex items-center">
                 <i className="fas fa-calendar-alt mr-2"></i>2012 - 2024
               </p>
-              <p className="mt-4 text-slate leading-relaxed italic text-sm">
+              <p
+                hidden
+                className="mt-4 text-slate leading-relaxed italic text-sm"
+              >
                 Extended timeline was leveraged to gain significant practical
                 experience and focus on independent project development.
               </p>

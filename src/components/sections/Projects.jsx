@@ -2,6 +2,7 @@ import { ProjectCard2 } from "@/components/common/cards/ProjectCard2.jsx";
 import { SectionHeader } from "@/components/common/headers/SectionHeader.jsx";
 import projects from "@/components/data/projects.js";
 import Section from "@/components/common/containers/Section";
+import SectionDark from "../common/containers/SectionDark";
 export const Projects = () => {
   return (
     <>

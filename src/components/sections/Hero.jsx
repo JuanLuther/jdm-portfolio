@@ -6,6 +6,7 @@ import {
   itemVariants,
   imageVariants,
 } from "@/components/data/FramerMotions.js";
+import SectionDark from "../common/containers/SectionDark";
 
 export const Hero = () => {
   return (
@@ -43,8 +44,7 @@ export const Hero = () => {
               variants={itemVariants}
             >
               I create beautiful, responsive, and user-friendly web applications
-              using modern technologies. Passionate about building innovative
-              solutions that make a difference.
+              using modern technologies.
             </motion.p>
 
             {/* Animated buttons container */}

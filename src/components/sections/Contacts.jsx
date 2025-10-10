@@ -23,7 +23,7 @@ export const Contacts = () => {
   ];
 
   return (
-    <Section
+    <SectionDark
       title="Get In Touch"
       caption="I'm always open to discussing new opportunities and interesting
             projects. Let's create something amazing together!"
@@ -58,6 +58,6 @@ export const Contacts = () => {
           ))}
         </motion.div>
       </motion.div>
-    </Section>
+    </SectionDark>
   );
 };
