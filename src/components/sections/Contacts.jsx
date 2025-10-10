@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "../common/FramerMotions.js";
-import { ContactForm } from "../common/forms/ContactForm.jsx";
-import SectionDark from "../common/containers/SectionDark.jsx";
+import { ContactForm } from "@/components/common/forms/ContactForm.jsx";
+import SectionDark from "@/components/common/containers/SectionDark.jsx";
 
 export const Contacts = () => {
   const SERVER = import.meta.env.VITE_API_URL || "http://localhost:3000";

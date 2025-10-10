@@ -1,14 +1,12 @@
 import { motion } from "framer-motion";
 import {
-  containerVariants,
   itemVariants,
   leftVariants,
   rightVariants,
-  bottomVariants,
   itemRevealVariants,
-} from "../common/FramerMotions.js";
-import skills from "../data/skills.js";
-import Section from "../common/containers/Section.jsx";
+} from "@/components/common/FramerMotions.js";
+import skills from "@/components/data/skills.js";
+import Section from "@/components/common/containers/Section";
 
 export const About = () => {
   return (
