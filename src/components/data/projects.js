@@ -2,12 +2,12 @@ const projects = [
   {
     title: "Eisenhower Task Prioritizer",
     description:
-      "A single-page app to organize, prioritize, and manage daily tasks efficiently using the Eisenhower Matrix methodology.",
+      "A single-page app to organize, prioritize, and manage tasks efficiently with Eisenhower Matrix methodology.",
     technologies: ["HTML5", "CSS3", "JavaScript"],
     image: "images/task-prioritizer.jpg",
     link: "https://task-prioritizer-nu.vercel.app/",
     repository: "https://github.com/JuanLuther/task-prioritizer",
-    display: false,
+    display: true,
   },
   {
     title: "Lovey",

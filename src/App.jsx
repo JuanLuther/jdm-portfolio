@@ -8,9 +8,9 @@ import { Projects } from "./components/sections/Projects";
 import { Contacts } from "./components/sections/Contacts";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import { LoadingScreen } from "./components/common/loading/LoadingScreen";
-import { BrowserRouter, Route, Routes, HashRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import BlogHome from "./components/sections/Blogs/BlogHome";
+import Blogs from "./components/sections/Blogs";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +27,7 @@ function App() {
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/blogs" element={<BlogHome />} />
+            <Route path="/blogs" element={<Blogs />} />
             <Route path="/contact" element={<Contacts />} />
           </Routes>
           <Footer />
