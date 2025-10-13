@@ -31,12 +31,12 @@ export const Hero = () => {
               >
                 Full Stack Developer
               </motion.p>
-              <motion.h1
+              <h1
                 className="font-display text-5xl lg:text-6xl font-bold text-dark-teal leading-tight"
                 variants={itemVariants}
               >
                 Hi, I'm <span className="gradient-text">Jerick</span>
-              </motion.h1>
+              </h1>
             </div>
 
             <motion.p
@@ -69,7 +69,7 @@ export const Hero = () => {
         </motion.div>
 
         {/* Hero Image - Apply image animation */}
-        <motion.div
+        <div
           className="w-full lg:w-1/2 flex justify-center"
           variants={imageVariants}
           initial="hidden"
@@ -80,6 +80,9 @@ export const Hero = () => {
               <img
                 src="images/profile2.jpg"
                 alt="Profile Picture"
+                // effect="blur"
+                width={300}
+                height={300}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -87,7 +90,7 @@ export const Hero = () => {
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-lavender rounded-full opacity-20"></div>
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-slate rounded-full opacity-10"></div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

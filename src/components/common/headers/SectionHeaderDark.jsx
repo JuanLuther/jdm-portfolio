@@ -22,12 +22,12 @@ export const SectionHeaderDark = ({ title, caption }) => {
         className="w-60 h-3 bg-lavender mx-auto rounded-full mb-4"
       ></motion.div>
       {caption ? (
-        <motion.p
+        <p
           variants={itemVariants}
           className="text-cream text-lg max-w-2xl mx-auto text-balance"
         >
           {caption}
-        </motion.p>
+        </p>
       ) : (
         ""
       )}

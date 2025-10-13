@@ -19,12 +19,12 @@ export const SectionHeader = ({ title, caption }) => {
         variants={itemVariants}
         className="section-divider"
       ></motion.div>
-      <motion.p
+      <p
         variants={itemVariants}
         className="text-slate text-lg max-w-2xl mx-auto text-balance"
       >
         {caption}
-      </motion.p>
+      </p>
     </motion.div>
   );
 };
