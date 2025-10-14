@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { containerVariants, itemVariants } from "../../data/FramerMotions.js";
 import Button from "../buttons/Button.jsx";
+import TechPill from "../pills/TechPill.jsx";
 
 export const ProjectCard = ({ project, index }) => {
   return (
@@ -44,16 +45,7 @@ export const ProjectCard = ({ project, index }) => {
           {/* Technologies */}
           <div className="flex  flex-wrap gap-2">
             {project.technologies.map((tech, index) => (
-              <motion.span
-                variants={itemVariants}
-                initial="hidden"
-                whileInView={"visible"}
-                viewport={{ once: true, amount: 0.2 }}
-                className="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-lg font-medium border border-amber-200 hover:bg-amber-100 hover:border-amber-300 transition-colors cursor-default text-xs"
-                key={index}
-              >
-                {tech}
-              </motion.span>
+              <TechPill key={index} text={tech} />
             ))}
           </div>
           {/* Buttons */}

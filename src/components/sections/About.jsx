@@ -8,6 +8,7 @@ import {
 import skills from "@/components/data/skills.js";
 import Section from "@/components/common/containers/Section";
 import SectionDark from "@/components/common/containers/SectionDark";
+import SkillPill from "../common/pills/SkillPill";
 
 export const About = () => {
   return (
@@ -94,12 +95,7 @@ export const About = () => {
                   >
                     {/* Individual Skill Tags Animation */}
                     {skills[category].map((lang, index) => (
-                      <span
-                        className="skill-tag px-3 py-1 rounded-full text-sm font-medium"
-                        key={index}
-                      >
-                        {lang}
-                      </span>
+                      <SkillPill key={index} text={lang} />
                     ))}
                   </div>
                 </motion.div>
