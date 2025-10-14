@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import navLinks from "@/components/data/navLinks";
+import Button from "../common/buttons/Button";
 
 export const Header = () => {
   const location = useLocation();
@@ -32,12 +33,21 @@ export const Header = () => {
           ))}
           <li>
             <Link
+              hidden
               to="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
               target="_blank"
               className="block btn-primary px-6 py-2 rounded-lg font-semibold text-center border border-slate hover:bg-white hover:text-slate transition-all duration-300"
             >
               <i className="fas fa-file-alt mr-2"></i>Resume
             </Link>
+            <Button
+              text={"Resume"}
+              icon={"fas fa-file-alt"}
+              type={"primary"}
+              href={"documents/Jerick Dale Mendoza-Full Stack Developer.pdf"}
+              size={"small"}
+              target="_blank"
+            />
           </li>
         </ul>
         {/* Hamburger Button */}

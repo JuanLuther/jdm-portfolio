@@ -1,108 +1,83 @@
 import React from "react";
-import { Monitor, Github, Calendar, Users, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { containerVariants, itemVariants } from "../../data/FramerMotions.js";
+import Button from "../buttons/Button.jsx";
 
-export default function ProjectCard() {
-  const project = {
-    title: "Architecture Website",
-    description:
-      "A modern architecture website showcasing innovative designs, project portfolios, and industry insights with responsive design.",
-    image: "images/portfolio.jpg",
-    status: "Completed",
-    progress: 100,
-    date: "Sep 2025",
-    team: 4,
-    tags: ["Tailwind CSS", "Next.js", "TypeScript", "Node.js", "MongoDB"],
-  };
-
+export const ProjectCard = ({ project, index }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-6">
-      <div className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-lg w-full transform hover:shadow-2xl transition-all duration-300">
-        {/* Image Container */}
-        <div className="relative overflow-hidden group">
+    <div className="project-card group cursor-pointer h-full" key={index}>
+      <div className="bg-white rounded-2xl card-shadow card-hover overflow-hidden border border-gray-100">
+        {/* Project Image */}
+        <div className="relative overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-56 object-cover transition-transform duration-500 "
           />
-          <div className="absolute top-4 right-4">
-            <span className="bg-green-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-lg">
-              {project.status}
-            </span>
-          </div>
         </div>
-
-        {/* Content */}
-        <div className="p-6">
-          {/* Title */}
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">
+        {/* Project Details */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          animate="visible"
+          viewport={{ once: true, amount: 0.6 }}
+          className="p-6"
+        >
+          <motion.h3
+            variants={itemVariants}
+            className="font-display text-2xl font-semibold mb-3 text-dark-teal group-hover:text-slate transition-colors"
+          >
             {project.title}
-          </h2>
-
-          {/* Description */}
-          <p className="text-slate-600 leading-relaxed mb-6 text-base">
+          </motion.h3>
+          <motion.p
+            variants={itemVariants}
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-slate mb-6 leading-relaxed"
+          >
             {project.description}
-          </p>
+          </motion.p>
 
-          {/* Progress Section */}
-          <div className="mb-6">
-            <div className="flex justify-between items-center mb-3">
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-green-600" />
-                <span className="text-sm font-semibold text-slate-700">
-                  Project Progress
-                </span>
-              </div>
-              <span className="text-sm font-bold text-green-600">
-                {project.progress}%
-              </span>
-            </div>
-            <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
-              <div
-                className="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full transition-all duration-700 shadow-sm"
-                style={{ width: `${project.progress}%` }}
-              ></div>
-            </div>
-          </div>
-
-          {/* Meta Info */}
-          <div className="flex items-center gap-6 mb-6 text-slate-600">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              <span className="text-sm font-medium">{project.date}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Users className="w-4 h-4" />
-              <span className="text-sm font-medium">
-                {project.team} Members
-              </span>
-            </div>
-          </div>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.map((tag, index) => (
-              <span
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech, index) => (
+              <motion.span
+                variants={itemVariants}
+                initial="hidden"
+                whileInView={"visible"}
+                viewport={{ once: true, amount: 0.2 }}
+                className="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-lg font-medium border border-amber-200 hover:bg-amber-100 hover:border-amber-300 transition-colors cursor-default text-xs"
                 key={index}
-                className="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-lg text-sm font-medium border border-amber-200 hover:bg-amber-100 hover:border-amber-300 transition-colors cursor-default"
               >
-                {tag}
-              </span>
+                {tech}
+              </motion.span>
             ))}
           </div>
-
-          {/* Action Buttons */}
-          <div className="flex gap-3">
-            <button className="flex-1 bg-slate-800 text-white py-3 px-4 rounded-lg font-semibold hover:bg-slate-900 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
-              <Monitor className="w-5 h-5" />
-              Demo
-            </button>
-            <button className="flex-1 bg-white text-slate-800 py-3 px-4 rounded-lg font-semibold border-2 border-slate-800 hover:bg-slate-800 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-              <Github className="w-5 h-5" />
-              View Code
-            </button>
+          {/* Buttons */}
+          <div className="flex space-x-3 mt-4">
+            <Button
+              text={"Demo"}
+              type={"primary"}
+              target="_blank"
+              icon={"fas fa-desktop"}
+              size={"small"}
+              href={project.link}
+            />
+            <Button
+              isDisabled={!project.repository}
+              type={"secondary"}
+              text={"View Code"}
+              target="_blank"
+              icon={"fab fa-github"}
+              size={"small"}
+              href={project.repository}
+            />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
-}
+};

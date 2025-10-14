@@ -7,6 +7,7 @@ import {
   imageVariants,
 } from "@/components/data/FramerMotions.js";
 import SectionDark from "../common/containers/SectionDark";
+import Button from "../common/buttons/Button";
 
 export const Hero = () => {
   return (
@@ -52,18 +53,18 @@ export const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
               variants={itemVariants}
             >
-              <Link
-                to="/projects"
-                className="btn-primary px-8 py-3 rounded-lg font-semibold inline-flex items-center justify-center"
-              >
-                <i className="fas fa-code mr-2"></i>View My Work
-              </Link>
-              <Link
-                to="/contact"
-                className="btn-secondary px-8 py-3 rounded-lg font-semibold inline-flex items-center justify-center"
-              >
-                <i className="fas fa-envelope mr-2"></i>Get in Touch
-              </Link>
+              <Button
+                text={"View My Work"}
+                type={"primary"}
+                href={"/projects"}
+                icon={"fas fa-code"}
+              />
+              <Button
+                text={"Get in Touch"}
+                type={"secondary"}
+                href={"/contact"}
+                icon={"fas fa-envelope"}
+              />
             </motion.div>
           </div>
         </motion.div>
