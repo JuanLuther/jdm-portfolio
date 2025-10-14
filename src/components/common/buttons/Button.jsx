@@ -19,7 +19,7 @@ const Button = ({
       to={href}
       className={`btn-${type} ${
         size == "small" ? "px-6 py-2" : "px-8 py-3"
-      } rounded-lg font-semibold inline-flex items-center justify-center ${disabledClass} w-fit`}
+      } rounded-lg font-semibold inline-flex items-center justify-center ${disabledClass} w-full text-nowrap`}
     >
       <i className={`${icon} mr-2`}></i>
       {text}

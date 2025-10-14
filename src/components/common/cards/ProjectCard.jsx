@@ -42,7 +42,7 @@ export const ProjectCard = ({ project, index }) => {
           </motion.p>
 
           {/* Technologies */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex  flex-wrap gap-2">
             {project.technologies.map((tech, index) => (
               <motion.span
                 variants={itemVariants}
@@ -57,7 +57,7 @@ export const ProjectCard = ({ project, index }) => {
             ))}
           </div>
           {/* Buttons */}
-          <div className="flex space-x-3 mt-4">
+          <div className="flex flex-col sm:flex-row space-x-3 mt-4 gap-2">
             <Button
               text={"Demo"}
               type={"primary"}
