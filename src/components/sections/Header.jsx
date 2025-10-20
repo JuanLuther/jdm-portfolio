@@ -28,7 +28,9 @@ export const Header = () => {
                   to={link.href}
                   role="tab"
                   className={`tab  ${
-                    location.pathname === link.href ? "tab-active" : ""
+                    location.pathname === link.href
+                      ? "tab-active text-primary border-primary"
+                      : ""
                   }`}
                 >
                   <p>{link.name}</p>
