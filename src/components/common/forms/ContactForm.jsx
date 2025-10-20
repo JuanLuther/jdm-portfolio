@@ -9,7 +9,7 @@ export const ContactForm = () => {
     return <MessageSentCard />;
   }
   return (
-    <div className="bg-white/10 backdrop-blur-custom rounded-2xl p-8 lg:p-12 border border-white/20">
+    <div className="rounded-2xl p-8 lg:p-12 border border-base-content/30">
       <form onSubmit={handleSubmit} id="contact-form" className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
@@ -53,7 +53,7 @@ export const ContactForm = () => {
         <button
           type="submit"
           disabled={state.submitting}
-          className="w-full bg-lavender text-dark-teal px-8 py-4 rounded-lg font-semibold hover:bg-cream transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 card-shadow"
+          className="w-full btn btn-primary"
         >
           {state.submitting ? (
             <>

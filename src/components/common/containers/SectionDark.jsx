@@ -25,7 +25,7 @@ const SectionDark = ({ title, caption, children }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <main className="container-custom relative z-10">
+        <main className="relative z-10">
           <SectionHeaderDark title={title} caption={caption} />
           {children}
         </main>

@@ -6,69 +6,11 @@ import {
   itemVariants,
   imageVariants,
 } from "@/components/data/FramerMotions.js";
-import SectionDark from "../common/containers/SectionDark";
-import Button from "../common/buttons/Button";
 
 export const Hero = () => {
   return (
-    <section
-      id="home"
-      className="min-h-screen bg-gradient-secondary relative overflow-hidden"
-    >
-      <div className="container mx-auto px-6 lg:px-20 py-20 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-8">
-        {/* Hero Content - Apply container animation */}
-        <motion.div
-          className="w-full lg:w-1/2 lg:pr-12 text-center lg:text-left mb-12 lg:mb-0"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className="space-y-6">
-            <div className="space-y-2">
-              {/* Animated text elements */}
-              <motion.p
-                className="text-slate font-medium tracking-wide uppercase text-sm"
-                variants={itemVariants}
-              >
-                Full Stack Developer
-              </motion.p>
-              <h1
-                className="font-display text-5xl lg:text-6xl font-bold text-dark-teal leading-tight"
-                variants={itemVariants}
-              >
-                Hi, I'm <span className="gradient-text">Jerick</span>
-              </h1>
-            </div>
-
-            <motion.p
-              className="text-slate text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 text-balance"
-              variants={itemVariants}
-            >
-              I create beautiful, responsive, and user-friendly web applications
-              using modern technologies.
-            </motion.p>
-
-            {/* Animated buttons container */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
-              variants={itemVariants}
-            >
-              <Button
-                text={"View My Work"}
-                type={"primary"}
-                href={"/projects"}
-                icon={"fas fa-code"}
-              />
-              <Button
-                text={"Get in Touch"}
-                type={"secondary"}
-                href={"/contact"}
-                icon={"fas fa-envelope"}
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-
+    <section id="home" className="hero">
+      <div className="hero-content flex-col lg:flex-row-reverse ">
         {/* Hero Image - Apply image animation */}
         <div
           className="w-full lg:w-1/2 flex justify-center"
@@ -77,7 +19,7 @@ export const Hero = () => {
           animate="visible"
         >
           <div className="relative">
-            <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden card-shadow border-4 border-white">
+            <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden card-shadow border-4 bg-clip-border border-transparent bg-gradient-to-r from-primary to-secondary">
               <img
                 src="images/profile2.jpg"
                 alt="Profile Picture"
@@ -88,10 +30,56 @@ export const Hero = () => {
               />
             </div>
             {/* Decorative elements - They will inherit the image animation */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-lavender rounded-full opacity-20"></div>
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-slate rounded-full opacity-10"></div>
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent rounded-full opacity-20"></div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary rounded-full opacity-10"></div>
           </div>
         </div>
+
+        {/* Hero Content - Apply container animation */}
+        <motion.div
+          className="w-full lg:w-1/2 lg:pr-12 text-center lg:text-left mb-12 lg:mb-0"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="space-y-6">
+            <div className="space-y-2">
+              {/* Animated text elements */}
+              <motion.h6 variants={itemVariants}>
+                Full Stack Developer
+              </motion.h6>
+              <h1>
+                Hi, I'm{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary animate-pulse">
+                  Jerick
+                </span>
+              </h1>
+            </div>
+
+            <motion.p variants={itemVariants}>
+              I create beautiful, responsive, and user-friendly web applications
+              using modern technologies.
+            </motion.p>
+
+            {/* Animated buttons container */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
+              variants={itemVariants}
+            >
+              <Link to={"/projects"} className={`btn btn-lg btn-primary`}>
+                <i className={`fas fa-code mr-2`}></i>
+                {"View My Work"}
+              </Link>
+              <Link
+                to={"/contact"}
+                className={`btn btn-lg btn-primary btn-outline`}
+              >
+                <i className={`fas fa-envelope mr-2`}></i>
+                {"Get in Touch"}
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

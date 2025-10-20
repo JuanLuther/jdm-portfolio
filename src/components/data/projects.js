@@ -7,7 +7,7 @@ const projects = [
     image: "images/task-prioritizer.jpg",
     link: "https://task-prioritizer-nu.vercel.app/",
     repository: "https://github.com/JuanLuther/task-prioritizer",
-    display: true,
+    display: false,
   },
   {
     title: "Lovey",

@@ -9,6 +9,7 @@ import skills from "@/components/data/skills.js";
 import Section from "@/components/common/containers/Section";
 import SectionDark from "@/components/common/containers/SectionDark";
 import SkillPill from "../common/pills/SkillPill";
+import TechPill from "../common/pills/TechPill";
 
 export const About = () => {
   return (
@@ -17,42 +18,31 @@ export const About = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
         {/* Introduction Card */}
         <motion.div className="lg:col-span-2" variants={leftVariants}>
-          <div className="h-full bg-cream rounded-2xl p-8 card-hover">
-            <h3 className="font-display text-2xl font-semibold text-dark-teal mb-4">
-              Introduction
-            </h3>
-            <p className="text-slate leading-relaxed text-lg">
-              I'm a passionate web developer focused on building maintainable,
-              scalable applications with JavaScript, PHP, Python and clean MVC
-              architecture. I love turning complex ideas into simple,
-              user-friendly solutions.
-            </p>
+          <div className="card shadow-xl h-full border border-base-content/20">
+            <div className="card-body">
+              <h3 className="card-title">Introduction</h3>
+              <p className="">
+                I'm a passionate web developer focused on building maintainable,
+                scalable applications with JavaScript, PHP, Python and clean MVC
+                architecture. I love turning complex ideas into simple,
+                user-friendly solutions.
+              </p>
+            </div>
           </div>
         </motion.div>
 
         {/* Education Card */}
         <motion.div className="lg:col-span-2" variants={rightVariants}>
-          <div className="h-full bg-white rounded-2xl p-8 card-shadow card-hover border border-gray-100">
-            <h3 className="font-display text-2xl font-semibold text-dark-teal mb-6 flex items-center">
-              <i className="fas fa-graduation-cap mr-3 text-slate"></i>
-              Education
-            </h3>
-            <div className="border-l-4 border-lavender pl-6">
-              <h4 className="text-xl font-semibold text-dark-teal mb-2">
-                Bachelor of Science in Computer Engineering
-              </h4>
-              <p className="text-slate font-medium mb-1">
-                Ateneo de Zamboanga University
-              </p>
-              <p className="text-gray-500 flex items-center">
+          <div className="card shadow-xl bg-base-100  h-full  border border-base-content/20">
+            <div className="card-body">
+              <h3 className="card-title">
+                <i className="fas fa-graduation-cap mr-2"></i>
+                Education
+              </h3>
+              <h5>Bachelor of Science in Computer Engineering</h5>
+              <p>Ateneo de Zamboanga University</p>
+              <p>
                 <i className="fas fa-calendar-alt mr-2"></i>2012 - 2024
-              </p>
-              <p
-                hidden
-                className="mt-4 text-slate leading-relaxed italic text-sm"
-              >
-                Extended timeline was leveraged to gain significant practical
-                experience and focus on independent project development.
               </p>
             </div>
           </div>
@@ -61,10 +51,7 @@ export const About = () => {
         {/* Skills Section (Container for Skill Categories) */}
         <div className="lg:col-span-4 space-y-8">
           <div className="h-full">
-            <motion.h3
-              variants={itemVariants}
-              className="font-display text-2xl font-semibold text-dark-teal mb-6 flex items-center"
-            >
+            <motion.h3 variants={itemVariants}>
               <i className="fas fa-code mr-3 text-slate"></i>Technical Skills
             </motion.h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -76,27 +63,27 @@ export const About = () => {
                   initial="hidden"
                   viewport={{ once: true, amount: 0.3 }}
                   key={index}
-                  className="rounded-2xl p-8 space-y-4 bg-white card-shadow card-hover border border-gray-100"
+                  className="card shadow-xl h-full  border border-base-content/20"
                 >
-                  <h4 className="font-semibold text-slate text-lg border-b-2 border-lavender pb-2">
-                    {category}
-                  </h4>
-                  <div
-                    className="flex flex-wrap gap-2"
-                    initial="hidden"
-                    animate="visible"
-                    variants={{
-                      visible: {
-                        transition: {
-                          staggerChildren: 0.05,
+                  <div className="card-body">
+                    <h5 className="card-title">{category}</h5>
+                    <div
+                      className="flex flex-wrap gap-2"
+                      initial="hidden"
+                      animate="visible"
+                      variants={{
+                        visible: {
+                          transition: {
+                            staggerChildren: 0.05,
+                          },
                         },
-                      },
-                    }}
-                  >
-                    {/* Individual Skill Tags Animation */}
-                    {skills[category].map((lang, index) => (
-                      <SkillPill key={index} text={lang} />
-                    ))}
+                      }}
+                    >
+                      {/* Individual Skill Tags Animation */}
+                      {skills[category].map((lang, index) => (
+                        <TechPill key={index} text={lang} />
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               ))}

@@ -44,25 +44,29 @@ export const LoadingScreen = ({ onLoaded }) => {
 
   return (
     // The main container that will fade out
-    <motion.div
-      className="fixed inset-0 z-50 flex flex-col justify-center items-center h-screen  text-2xl font-bold space-y-4"
-      variants={splashVariants}
-      initial="initial"
-      exit="exit" // Use the 'exit' prop which requires the parent to use AnimatePresence
+    <section
+      id="loading"
+      className="min-h-screen flex flex-col items-center justify-center"
     >
-      {/* Animated content container for the bounce/fade-in effect */}
       <motion.div
-        className="flex flex-col justify-center items-center space-y-2"
-        variants={contentVariants}
+        variants={splashVariants}
         initial="initial"
-        animate="animate"
+        exit="exit" // Use the 'exit' prop which requires the parent to use AnimatePresence
       >
-        <div className="animate-bounce">
-          {/* Note: Ensure 'logo.svg' path is correct in your project */}
-          <img src="logo.svg" alt="Loading..." />
-        </div>
-        <div>JERICK DALE A. MENDOZA</div>
+        {/* Animated content container for the bounce/fade-in effect */}
+        <motion.div
+          className="flex flex-col justify-center items-center space-y-2"
+          variants={contentVariants}
+          initial="initial"
+          animate="animate"
+        >
+          <div className="animate-bounce">
+            {/* Note: Ensure 'logo.svg' path is correct in your project */}
+            <img src="logo.svg" alt="Loading..." />
+          </div>
+          <div className="text-2xl font-bold">JERICK DALE A. MENDOZA</div>
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </section>
   );
 };

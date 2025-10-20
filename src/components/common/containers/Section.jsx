@@ -5,9 +5,8 @@ import { containerVariants } from "../../data/FramerMotions";
 
 const Section = ({ title, caption, children }) => {
   return (
-    <section className="min-h-screen section-padding bg-gradient-secondary">
+    <section className="container mx-auto">
       <motion.div
-        className="container-custom"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

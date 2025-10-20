@@ -1,181 +1,47 @@
 @import "tailwindcss";
-
-:root {
-  --cream: #17313e;
-  --cream: #f3e2d4;
-  --lavender: #c5b0cd;
-  --slate: #415e72;
-  --dark-teal: #17313e;
+@plugin "daisyui" {
+  themes: all;
 }
 
 body {
   font-family: "Inter", sans-serif;
+  @apply bg-base-100 text-base-content;
+}
+section {
+  @apply py-8 min-h-screen;
+}
+/* H1: Primary Page Title/Main Banner Heading (e.g., "Hi, I'm Jerick") */
+h1 {
+  @apply text-5xl lg:text-6xl font-extrabold leading-tight;
+}
+/* 2. H2: Main Section Title (e.g., "Projects," "About Me") */
+h2 {
+  @apply text-4xl lg:text-5xl font-bold leading-snug  mt-12 mb-6;
 }
 
-.font-display {
-  font-family: "Playfair Display", serif;
+/* 3. H3: Sub-Section or Major Topic Heading */
+h3 {
+  @apply text-3xl lg:text-4xl font-semibold leading-normal  mt-8 mb-4;
 }
 
-.text-cream {
-  color: var(--cream);
-}
-.text-lavender {
-  color: var(--lavender);
-}
-.text-slate {
-  color: var(--slate);
-}
-.text-dark-teal {
-  color: var(--dark-teal);
+/* 4. H4: Card Titles, Minor Headings, or List Titles */
+h4 {
+  @apply text-xl lg:text-2xl font-semibold leading-relaxed  mt-6 mb-3;
 }
 
-.bg-cream {
-  background-color: var(--cream);
-}
-.bg-lavender {
-  background-color: var(--lavender);
-}
-.bg-slate {
-  background-color: var(--slate);
-}
-.bg-dark-teal {
-  background-color: var(--dark-teal);
+/* 5. H5: Supporting Titles or Metadata Headings */
+h5 {
+  @apply text-lg lg:text-xl font-medium leading-relaxed  mb-2;
 }
 
-.border-cream {
-  border-color: var(--cream);
-}
-.border-lavender {
-  border-color: var(--lavender);
-}
-.border-slate {
-  border-color: var(--slate);
-}
-.border-dark-teal {
-  border-color: var(--dark-teal);
+/* 6. H6: Smallest Headings, Labels, or Time/Date Stamps */
+h6 {
+  @apply text-sm lg:text-base uppercase tracking-wider font-medium  mb-1;
 }
 
-.gradient-primary {
-  background: linear-gradient(135deg, var(--lavender), var(--slate));
-}
+---
 
-.gradient-secondary {
-  background: linear-gradient(135deg, var(--cream), var(--lavender));
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, var(--slate), var(--dark-teal));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.card-shadow {
-  box-shadow: 0 4px 20px rgba(65, 94, 114, 0.1);
-}
-
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(65, 94, 114, 0.15);
-}
-
-.btn-primary {
-  background: var(--slate);
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  background: var(--dark-teal);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--slate);
-  border: 2px solid var(--slate);
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-  background: var(--slate);
-  color: white;
-  transform: translateY(-2px);
-}
-
-.skill-tag {
-  background: var(--cream);
-  color: var(--dark-teal);
-  border: 1px solid var(--lavender);
-  transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-  background: var(--lavender);
-  color: white;
-  transform: scale(1.05);
-}
-
-.section-padding {
-  padding: 5rem 0;
-}
-
-.container-custom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.backdrop-blur-custom {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--slate);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-.nav-link.active::after {
-  width: 100%;
-}
-
-.section-divider {
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--lavender), var(--slate));
-  margin: 0 auto 3rem;
-  border-radius: 2px;
-}
-
-@media (max-width: 768px) {
-  .section-padding {
-    padding: 3rem 0;
-  }
-
-  .container-custom {
-    padding: 0 1rem;
-  }
+/* P: Standard Body Text */
+p {
+  @apply text-base lg:text-lg font-normal text-gray-700 leading-relaxed mb-4;
 }

@@ -11,7 +11,7 @@ export const SectionHeader = ({ title, caption }) => {
     >
       <motion.h2
         variants={itemVariants}
-        className="font-display text-4xl lg:text-5xl font-bold text-dark-teal mb-4"
+        className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4"
       >
         {title}
       </motion.h2>
