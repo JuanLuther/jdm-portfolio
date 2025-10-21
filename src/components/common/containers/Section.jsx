@@ -5,7 +5,7 @@ import { containerVariants } from "../../data/FramerMotions";
 
 const Section = ({ title, caption, children }) => {
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto px-2">
       <motion.div
         variants={containerVariants}
         initial="hidden"
