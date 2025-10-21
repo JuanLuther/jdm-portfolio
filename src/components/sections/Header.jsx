@@ -109,7 +109,7 @@ export const Header = () => {
       {/* Mobile Nav Links */}
       <ul
         id="mobile-menu"
-        className={`flex-col space-y-4 px-6 pb-6 text-slate font-medium md:hidden bg-base-100/95 border-b border-base-content ${
+        className={`flex-col space-y-4 px-6 pb-6 text-slate font-medium lg:hidden bg-base-100/95 border-b border-base-content ${
           isMobileMenuOpen ? "" : "hidden"
         }`}
       >
