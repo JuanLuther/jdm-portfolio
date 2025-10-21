@@ -6,7 +6,9 @@ import { LoadingScreen } from "../common/loading/LoadingScreen";
 export const Header = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isThemeLight, setIsThemeLight] = useState(true);
+  const [isThemeLight, setIsThemeLight] = useState(
+    localStorage.getItem("theme") === "fantasy"
+  );
   return (
     <header className="bg-base-100 sticky top-0 z-50 container mx-auto">
       <nav className="navbar">
@@ -31,7 +33,7 @@ export const Header = () => {
                   className={`tab  ${
                     location.pathname === link.href
                       ? "tab-active text-primary border-primary"
-                      : ""
+                      : "text-base-content border-transparent"
                   }`}
                 >
                   <p>{link.name}</p>
@@ -52,11 +54,14 @@ export const Header = () => {
               <input
                 type="checkbox"
                 className="theme-controller"
-                checked={!isThemeLight}
+                value={isThemeLight}
+                checked={isThemeLight}
                 onChange={() => {
-                  setIsThemeLight(!isThemeLight);
-                  const body = document.body;
-                  body.dataset["theme"] = isThemeLight ? "fantasy" : "sunset";
+                  const newThemeIsLight = !isThemeLight;
+                  setIsThemeLight(newThemeIsLight);
+                  const themeName = newThemeIsLight ? "fantasy" : "sunset";
+                  localStorage.setItem("theme", themeName);
+                  document.body.dataset.theme = themeName;
                 }}
               />
 
@@ -122,7 +127,7 @@ export const Header = () => {
               className={`tab ${
                 location.pathname === link.href
                   ? "tab-active text-primary border-primary"
-                  : ""
+                  : "text-base-content border-transparent"
               }`}
             >
               <p>{link.name}</p>
@@ -144,11 +149,14 @@ export const Header = () => {
             <input
               type="checkbox"
               className="theme-controller"
-              checked={!isThemeLight}
+              value={isThemeLight}
+              checked={isThemeLight}
               onChange={() => {
-                setIsThemeLight(!isThemeLight);
-                const body = document.body;
-                body.dataset["theme"] = isThemeLight ? "fantasy" : "sunset";
+                const newThemeIsLight = !isThemeLight;
+                setIsThemeLight(newThemeIsLight);
+                const themeName = newThemeIsLight ? "fantasy" : "sunset";
+                localStorage.setItem("theme", themeName);
+                document.body.dataset.theme = themeName;
               }}
             />
 

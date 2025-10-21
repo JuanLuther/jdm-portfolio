@@ -51,7 +51,7 @@ export const ProjectCard = ({ project, index }) => {
         <div className="card-actions flex flex-col sm:flex-row space-x-3 mt-4 gap-2">
           <Link
             to={project.link}
-            className={`btn  btn-primary`}
+            className={`btn  btn-primary w-full sm:w-fit`}
             target="_blank"
           >
             <i className={`fas fa-desktop mr-2`}></i>
@@ -59,29 +59,12 @@ export const ProjectCard = ({ project, index }) => {
           </Link>
           <Link
             to={project.repository}
-            className={`btn  btn-primary btn-outline`}
+            className={`btn  btn-primary btn-outline w-full sm:w-fit`}
             target="_blank"
           >
             <i className={"fa-brands fa-github mr-2"}></i>
             {"View Code"}
           </Link>
-          {/* <Button
-              text={"Demo"}
-              type={"primary"}
-              target="_blank"
-              icon={"fas fa-desktop"}
-              size={"small"}
-              href={project.link}
-            />
-            <Button
-              isDisabled={!project.repository}
-              type={"secondary"}
-              text={"View Code"}
-              target="_blank"
-              icon={"fab fa-github"}
-              size={"small"}
-              href={project.repository}
-            /> */}
         </div>
       </motion.div>
     </div>

@@ -56,7 +56,10 @@ export const Hero = () => {
               </h1>
             </div>
 
-            <motion.p variants={itemVariants}>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg max-w-2xl mx-auto"
+            >
               I create beautiful, responsive, and user-friendly web applications
               using modern technologies.
             </motion.p>

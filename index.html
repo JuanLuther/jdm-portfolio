@@ -36,8 +36,14 @@
       rel="stylesheet"
     />
   </head>
-  <body class="antialiased overflow-x-hidden" data-theme="sunset">
+  <body class="antialiased overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let body = document.body;
+      body.dataset.theme = localStorage.getItem("theme") ?? "sunset";
+    });
+  </script>
 </html>
