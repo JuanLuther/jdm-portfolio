@@ -22,7 +22,7 @@ export const Header = () => {
         </div>
         {/* Desktop Nav Links */}
         <div className="navbar-end">
-          <ul className="hidden md:flex  gap-2">
+          <ul className="hidden lg:flex  gap-2">
             {navLinks.map((link) => (
               <li key={link.href} className="tabs tabs-border" role="tablist">
                 <Link
@@ -83,7 +83,7 @@ export const Header = () => {
         {/* Hamburger Button */}
         <div
           id="hamburger"
-          className="md:hidden cursor-pointer group "
+          className="lg:hidden cursor-pointer group "
           onClick={() => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
           }}

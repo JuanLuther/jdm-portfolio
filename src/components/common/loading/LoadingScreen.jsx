@@ -37,7 +37,7 @@ export const LoadingScreen = ({ onLoaded }) => {
       if (onLoaded) {
         onLoaded();
       }
-    }, 1500); // Display time before starting the fade-out
+    }, 200); // Display time before starting the fade-out
 
     return () => clearTimeout(timer);
   }, [onLoaded]);

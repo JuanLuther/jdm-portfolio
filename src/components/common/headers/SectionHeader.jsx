@@ -15,16 +15,11 @@ export const SectionHeader = ({ title, caption }) => {
       >
         {title}
       </motion.h2>
-      <motion.div
+      {/* <motion.div
         variants={itemVariants}
         className="section-divider"
-      ></motion.div>
-      <p
-        variants={itemVariants}
-        className="text-slate text-lg max-w-2xl mx-auto text-balance"
-      >
-        {caption}
-      </p>
+      ></motion.div> */}
+      <p className="text-lg max-w-2xl mx-auto text-balance">{caption}</p>
     </motion.div>
   );
 };

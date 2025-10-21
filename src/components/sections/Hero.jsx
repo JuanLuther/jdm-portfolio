@@ -12,23 +12,23 @@ export const Hero = () => {
     <section id="home" className="hero">
       <div className="hero-content flex-col lg:flex-row-reverse ">
         {/* Hero Image - Apply image animation */}
-        <div
-          className="w-full lg:w-1/2 flex justify-center"
-          variants={imageVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <div className="w-full lg:w-1/2 flex justify-center">
           <div className="relative">
-            <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden card-shadow border-4 bg-clip-border border-transparent bg-gradient-to-r from-primary to-secondary">
+            <motion.div
+              variants={imageVariants}
+              initial="hidden"
+              animate="visible"
+              effect="blur"
+              className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden card-shadow border-4 bg-clip-border border-transparent bg-gradient-to-r from-primary to-secondary "
+            >
               <img
                 src="images/profile2.jpg"
                 alt="Profile Picture"
-                // effect="blur"
                 width={300}
                 height={300}
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
             {/* Decorative elements - They will inherit the image animation */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent rounded-full opacity-20"></div>
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary rounded-full opacity-10"></div>

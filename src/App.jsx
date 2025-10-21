@@ -12,7 +12,7 @@ import { Contacts } from "./components/sections/Contacts";
 import { Footer } from "./components/sections/Footer";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <BrowserRouter>
