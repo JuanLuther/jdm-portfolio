@@ -49,11 +49,11 @@ export const Header = () => {
                 <i className="fas fa-file-alt mr-2"></i>Resume
               </Link>
             </li>
-            <label className="swap swap-rotate">
+            <label className="swap swap-rotate btn btn-soft btn-secondary  btn-circle">
               {/* this hidden checkbox controls the state */}
               <input
                 type="checkbox"
-                className="theme-controller"
+                className="theme-controller "
                 value={isThemeLight}
                 checked={isThemeLight}
                 onChange={() => {
