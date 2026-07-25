@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import navLinks from "@/components/data/navLinks";
 import { LoadingScreen } from "../common/loading/LoadingScreen";
+import TailwindPDFModal from "../TailwindPdfModal";
 
 export const Header = () => {
   const location = useLocation();
@@ -9,8 +10,14 @@ export const Header = () => {
   const [isThemeLight, setIsThemeLight] = useState(
     localStorage.getItem("theme") === "fantasy",
   );
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   return (
     <header className="bg-base-100 sticky top-0 z-50 container mx-auto">
+      <TailwindPDFModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+        pdfUrl="documents/Jerick_Dale_Mendoza_Resume.pdf"
+      />
       <nav className="navbar">
         {/* Brand */}
         <div className="navbar-start">
@@ -41,13 +48,14 @@ export const Header = () => {
               </li>
             ))}
             <li>
-              <Link
-                to="documents/Jerick_Dale_Mendoza_Resume.pdf"
-                target="_blank"
+              <button
+                onClick={() => {
+                  setIsResumeOpen(true);
+                }}
                 className="btn btn-primary"
               >
                 <i className="fas fa-file-alt mr-2"></i>Resume
-              </Link>
+              </button>
             </li>
             <label className="swap swap-rotate btn btn-soft btn-secondary  btn-circle">
               {/* this hidden checkbox controls the state */}
