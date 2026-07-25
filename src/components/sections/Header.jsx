@@ -44,7 +44,7 @@ export const Header = () => {
               <Link
                 to="documents/Jerick_Dale_Mendoza_Resume.pdf"
                 target="_blank"
-                className="btn btn-primary  "
+                className="btn btn-primary"
               >
                 <i className="fas fa-file-alt mr-2"></i>Resume
               </Link>
@@ -136,7 +136,7 @@ export const Header = () => {
         ))}
         <li>
           <Link
-            to="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
+            to="documents/Jerick_Dale_Mendoza_Resume.pdf"
             target="_blank"
             className="btn btn-primary"
           >
