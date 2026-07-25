@@ -6,7 +6,7 @@ import "react-pdf/dist/Page/AnnotationLayer.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-export default function SimpleDrivePDFModal({
+export default function TailwindPDFModal({
   isOpen,
   onClose,
   pdfUrl,
