@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import navLinks from "@/components/data/navLinks";
-import { LoadingScreen } from "../common/loading/LoadingScreen";
-import TailwindPDFModal from "../TailwindPdfModal";
+import TailwindPDFModal from "@/components/TailwindPDFModal";
 
 export const Header = () => {
   const location = useLocation();
