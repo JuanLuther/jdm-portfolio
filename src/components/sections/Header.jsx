@@ -7,7 +7,7 @@ export const Header = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isThemeLight, setIsThemeLight] = useState(
-    localStorage.getItem("theme") === "fantasy"
+    localStorage.getItem("theme") === "fantasy",
   );
   return (
     <header className="bg-base-100 sticky top-0 z-50 container mx-auto">
@@ -42,7 +42,7 @@ export const Header = () => {
             ))}
             <li>
               <Link
-                to="documents/Jerick Dale Mendoza-Full Stack Developer.pdf"
+                to="documents/Jerick_Dale_Mendoza_Resume.pdf"
                 target="_blank"
                 className="btn btn-primary  "
               >
