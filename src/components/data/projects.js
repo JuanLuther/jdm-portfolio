@@ -31,7 +31,7 @@ const projects = [
       "Firebase",
     ],
     image: "images/freshpondph.jpg",
-    link: "https://freshpondph.vercel.app/",
+    link: "https://github.com/JuanLuther/fresh-pond-ph",
     repository: "",
     display: true,
   },
